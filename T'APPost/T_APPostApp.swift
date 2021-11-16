@@ -11,7 +11,17 @@ import SwiftUI
 struct T_APPostApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView{
+                ContentView().tabItem{
+                    Label("Dashboard", systemImage: "circle.dashed.inset.filled")
+                }
+                QuizDash().tabItem{
+                    Label("Quiz", systemImage: "questionmark")
+                }
+                ArchiveView().tabItem{
+                    Label("Archive", systemImage: "books.vertical.circle")
+                }
+            }
         }
     }
 }
