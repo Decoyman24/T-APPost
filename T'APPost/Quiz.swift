@@ -8,14 +8,9 @@
 import SwiftUI
 import Foundation
 
-var categories = ["Greetings", "Daily life", "Romance", "Danger Zone"]
-var levels = ["Chiattillo", "Scugnizzo", "Sarracino", "Cafone"]
-
 
 
 struct QuizDash: View{
-    
-    @State private var unlocked = false
     
     var body: some View{
         
@@ -33,23 +28,23 @@ struct QuizDash: View{
                       
                         circleShape()
                             
-                    Text("Lv. \(levels[0])").italic()
+            Text("Lv. \(ourUser.userTitle)").italic()
                             
                             Divider()
                             Spacer()
             VStack(spacing: 20){
                     Group {
                             Button("\(categories[0])") {
-                            }
+                            }.disabled(ourUser.greetingsUnlocked == false)
                 
                             Button("\(categories[1])") {
-                            }
+                            }.disabled(ourUser.dailyLifeUnlocked == false)
                             
                             Button("\(categories[2])") {
-                            }
+                            }.disabled(ourUser.romanceUnlocked == false)
 
                             Button("\(categories[3])") {
-                            }
+                            }.disabled(ourUser.dangerZoneUnlocked == false)
                         }
                         .padding(10).scenePadding(.vertical)
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -58,7 +53,6 @@ struct QuizDash: View{
                         .font(.title2)
                         .foregroundColor(Color.white)
                   }
-//            .disabled(unlocked == false)
             
             
                     Spacer()
@@ -78,4 +72,3 @@ struct QuizDash_Previews: PreviewProvider {
         QuizDash()
     }
 }
-//ciao ciao

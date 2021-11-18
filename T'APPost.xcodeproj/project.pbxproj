@@ -14,6 +14,7 @@
 		1C5AB2A12743CC2B0038D0BC /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5AB2A02743CC2B0038D0BC /* Dashboard.swift */; };
 		1C5AB2A32743CC400038D0BC /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5AB2A22743CC400038D0BC /* Archive.swift */; };
 		1C5AB2A52743CC4B0038D0BC /* Parole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5AB2A42743CC4B0038D0BC /* Parole.swift */; };
+		1C738F4927466DA50079E7D1 /* Utente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C738F4827466DA50079E7D1 /* Utente.swift */; };
 		64CF05AE27458772001C33D8 /* circleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF05AD27458772001C33D8 /* circleShape.swift */; };
 		64CF05B027458A14001C33D8 /* QuizScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF05AF27458A14001C33D8 /* QuizScene.swift */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,7 @@
 		1C5AB2A02743CC2B0038D0BC /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		1C5AB2A22743CC400038D0BC /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		1C5AB2A42743CC4B0038D0BC /* Parole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parole.swift; sourceTree = "<group>"; };
+		1C738F4827466DA50079E7D1 /* Utente.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utente.swift; sourceTree = "<group>"; };
 		64CF05AD27458772001C33D8 /* circleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleShape.swift; sourceTree = "<group>"; };
 		64CF05AF27458A14001C33D8 /* QuizScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +63,7 @@
 		1C5AB2912743CBFB0038D0BC /* T'APPost */ = {
 			isa = PBXGroup;
 			children = (
+				1C738F4827466DA50079E7D1 /* Utente.swift */,
 				1C5AB2922743CBFB0038D0BC /* T_APPostApp.swift */,
 				1C5AB2942743CBFB0038D0BC /* Quiz.swift */,
 				1C5AB2A02743CC2B0038D0BC /* Dashboard.swift */,
@@ -156,6 +159,7 @@
 				64CF05AE27458772001C33D8 /* circleShape.swift in Sources */,
 				1C5AB2A12743CC2B0038D0BC /* Dashboard.swift in Sources */,
 				1C5AB2A32743CC400038D0BC /* Archive.swift in Sources */,
+				1C738F4927466DA50079E7D1 /* Utente.swift in Sources */,
 				1C5AB2932743CBFB0038D0BC /* T_APPostApp.swift in Sources */,
 				64CF05B027458A14001C33D8 /* QuizScene.swift in Sources */,
 				1C5AB2A52743CC4B0038D0BC /* Parole.swift in Sources */,
