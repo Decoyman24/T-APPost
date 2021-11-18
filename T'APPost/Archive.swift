@@ -10,16 +10,33 @@ import AVFoundation
 
 
 struct ArchiveView: View {
+    @State var selectedCategory = "Greetings"
+
     var body: some View {
         //NavigationView che usa i nomi delle parole della lista come link, per poi rimandarti a DetailView (passa come parametro l'intera parola compresa di nome, descrizione e proprietà)
+        VStack{
+            Spacer()
+            Spacer()
+            Spacer()
+            Text("Archive").font(.title.bold()).foregroundColor(.blue)
+            VStack{
+                Picker("Category", selection: $selectedCategory){
+                    Text("Greetings").tag("Greetings")
+                    Text("Daily Life").tag("Daily Life")
+                    Text("Romance").tag("Romance")
+                    Text("Danger Zone").tag("Danger Zone")
+                        
+                }.pickerStyle(.segmented)
         NavigationView{
             List(parole) { parola in
                 NavigationLink(destination: DetailView(parol: parola)){
                     Text(parola.nome)
                         .fontWeight(.medium)
-                }.navigationBarTitle("Archive")
+                }
             }
         }
+        }
+        }.padding(.horizontal)
     }
 }
 //View della singola parola dove troverai descrizione, audio ed esempio in una converazione
