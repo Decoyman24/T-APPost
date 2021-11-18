@@ -19,17 +19,17 @@ struct QuizDash: View{
     
     var body: some View{
         
-        VStack(spacing: 20){
+        VStack(spacing: 10){
                    
                     
                     Text("Quiz")
                         .font(.largeTitle)
                         .foregroundColor(Color.blue)
                         .fontWeight(.heavy)
-                        .padding(5.0)
+                        .padding()
 //                        .frame(maxWidth: .infinity, alignment: .leading)
                         
-                    Spacer()
+            Spacer()
                       
                         circleShape()
                             
@@ -37,7 +37,7 @@ struct QuizDash: View{
                             
                             Divider()
                             Spacer()
-            VStack{
+            VStack(spacing: 20){
                     Group {
                             Button("\(categories[0])") {
                             }
@@ -50,12 +50,12 @@ struct QuizDash: View{
 
                             Button("\(categories[3])") {
                             }
-
-                        }.padding(4).scenePadding(.vertical)
+                        }
+                        .padding(10).scenePadding(.vertical)
                         .frame(maxWidth: .infinity, alignment: .center)
-                        .background(.blue)
-                        .cornerRadius(25)
-                        .font(.title)
+                        .background(Color(UIColor.systemBlue))
+                        .cornerRadius(30)
+                        .font(.title2)
                         .foregroundColor(Color.white)
                   }
 //            .disabled(unlocked == false)
@@ -68,7 +68,7 @@ struct QuizDash: View{
                     
 //                        .preferredColorScheme(.dark)
                         
-                }.padding()
+        }.padding(.horizontal, 30.0)
     
 }
 }
