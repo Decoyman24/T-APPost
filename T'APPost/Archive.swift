@@ -15,7 +15,7 @@ struct ArchiveView: View {
     @State var selezionato = 0
     
     let livello1 : [Parola] = parole.filter{$0.categoria == "Greetings"}
-    let livello2 : [Parola] = parole.filter{$0.categoria == "Daily life"}
+    let livello2 : [Parola] = parole.filter{$0.categoria == "Daily Life"}
     let livello3 : [Parola] = parole.filter{$0.categoria == "Romance"}
     let livello4 : [Parola] = parole.filter{$0.categoria == "Danger Zone"}
 
