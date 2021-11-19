@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct ButtonView : View {
-  
-    var livello : String 
+//  view che sostituisce il bottone nella dashboard quiz poichè non funzione un cazzo con ui button
+    var livello : String = "dfvsdgs"
        
     var body: some View{
         
         ZStack{
-            Spacer()
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .fill(Color.blue)
                             .scaledToFit()
             VStack (alignment: .leading, spacing: 10){
-                Spacer()
+               
                 Text(livello)
-                    .padding(10)
+//                    .padding(10)
                     .font(.title2)
                     .foregroundColor(.white)
                 
@@ -30,13 +29,13 @@ struct ButtonView : View {
             }
 //            .layoutPriority(100)
         }
-        .padding([.top, .horizontal, .leading, .trailing])
+//        .padding([.top, .horizontal, .leading, .trailing])
     }
 }
 
 
-//struct ButtonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ButtonView()
-//    }
-//}
+struct ButtonView_Previews: PreviewProvider {
+    static var previews: some View {
+        ButtonView()
+    }
+}

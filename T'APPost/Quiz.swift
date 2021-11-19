@@ -13,11 +13,9 @@ var categories = ["Greetings", "Daily Life", "Romance", "Danger Zone"]
     
 var levels = ["Chiattillo", "Scugnizzo", "Sarracino", "Cafone"]
 
-//card per la presentazione ad ogni livello
-
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-//  style bottone per il quiz ////////////////////////////////////////////////////////////
+//  style bottone per il quiz ////////////////
 struct GrowingButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -60,21 +58,24 @@ struct QuizDash: View{
                             Spacer()
             VStack(spacing:20){
                     Group {
-                        
-                        
+                                                
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[0])) {
                             ButtonView(livello: categories[0])
                         }
                         
-
-                            Button("\(categories[1])") {
-                            }
-
-                            Button("\(categories[2])") {
-                            }
-
-                            Button("\(categories[3])") {
-                            }
+                        
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1])) {
+                            ButtonView(livello: categories[1])
+                        }
+                        
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2])) {
+                            ButtonView(livello: categories[2])
+                        }
+                        
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[3])) {
+                            ButtonView(livello: categories[3])
+                        }
+                        
                         }
 
                         .padding(10).scenePadding(.vertical)
@@ -117,11 +118,10 @@ struct Intro_Quiz: View {
                     VStack(alignment: .center, spacing: 10){
                         
                         ForEach (filtrato) { parolina in
-                            
                             CardView(parola: parolina)
                         }
                         
-        }.frame(maxHeight: .infinity) //fine vstack
+        }.frame(maxHeight: .infinity)
                 }.navigationTitle(categoriaScelta).padding(.horizontal).font(.title)
                            }
                    
@@ -144,6 +144,7 @@ struct Intro_Quiz: View {
     }
         
 }
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -153,8 +154,8 @@ struct Intro_Quiz: View {
 
 struct QuizDash_Previews: PreviewProvider {
     static var previews: some View {
-        Intro_Quiz(categoriaScelta: "Greetings")
+        QuizDash()
     }
 }
-}
+
 

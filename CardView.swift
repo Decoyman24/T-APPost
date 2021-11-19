@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+// view che permette di creare la card nella view di presentazione delle parole per ogni quiz
 struct CardView : View {
   
     var parola : Parola
@@ -15,15 +17,13 @@ struct CardView : View {
     var body: some View{
         
         ZStack{
-            Spacer()
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .fill(Color.gray)
             
             VStack (alignment: .leading, spacing: 10){
-                Spacer()
                 Text(parola.nome)
                     .padding(10)
-                    .font(.title2.bold())
+                    .font(.title2.bold().italic())
                     .foregroundColor(.black)
                     
                 //                Spacer()
