@@ -38,8 +38,9 @@ struct QuizDash: View{
                             Divider()
                             Spacer()
             VStack(spacing: 20){
-                    Group {
-                            Button("\(categories[0])") {
+                Group {
+                            Button(categories[0]){
+                        
                             }
                 
                             Button("\(categories[1])") {
