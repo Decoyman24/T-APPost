@@ -12,7 +12,7 @@ struct T_APPostApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
-                ContentView().tabItem{
+                Dashboard().tabItem{
                     Label("Dashboard", systemImage: "circle.dashed.inset.filled")
                 }
                 QuizDash().tabItem{
