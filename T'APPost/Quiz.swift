@@ -15,20 +15,33 @@ var levels = ["Chiattillo", "Scugnizzo", "Sarracino", "Cafone"]
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-//  style bottone per il quiz ////////////////
-struct GrowingButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding()
-           .background(Color.blue)
-            .foregroundColor(.white)
-            .clipShape(Capsule())
-            .scaleEffect(configuration.isPressed ? 1.2 : 1)
-            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
-    }
-}
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//view per il bottone del quiz
+struct QuizButton : View {
+    var body: some View {
+    
+            VStack (alignment: .center, spacing: 10){
+                Text("Take the Quiz")
+                
+                    .fontWeight(.bold)
+                    .font(.system(size: 22))
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(40)
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke(Color.blue, lineWidth: 5)
+                        )
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+            }
 
+        }
+        
+    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 struct QuizDash: View{
     
@@ -37,17 +50,12 @@ struct QuizDash: View{
     
     var body: some View{
         NavigationView{
-        
         VStack(spacing: 10){
-                   
-                    
                     Text("Quiz")
                         .font(.largeTitle)
                         .foregroundColor(Color.blue)
                         .fontWeight(.heavy)
                         .padding()
-//                        .frame(maxWidth: .infinity, alignment: .leading)
-                        
             Spacer()
                       
                         circleShape()
@@ -56,49 +64,39 @@ struct QuizDash: View{
                             
                             Divider()
                             Spacer()
-            VStack(spacing:20){
+            VStack(spacing:10){
                     Group {
-                                                
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[0])) {
                             ButtonView(livello: categories[0])
                         }
-                        
-                        
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1])) {
                             ButtonView(livello: categories[1])
                         }
-                        
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2])) {
                             ButtonView(livello: categories[2])
                         }
-                        
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[3])) {
                             ButtonView(livello: categories[3])
                         }
-                        
                         }
 
-                        .padding(10).scenePadding(.vertical)
+                        .padding(20).scenePadding(.vertical)
                         .frame(maxWidth: .infinity, alignment: .center)
                         .background(Color(UIColor.systemBlue))
                         .cornerRadius(30)
                         .font(.title2)
                         .foregroundColor(Color.white)
-
-          
 //            .disabled(unlocked == false)
-            
-            
                     Spacer()
-
             }
-                        
-                    
 //                        .preferredColorScheme(.dark)
-                        
+            Spacer()
+            Spacer()
+            Spacer()
+            
         }.padding(.horizontal, 30.0)
-    
-}
+          
+        }
 }
 }
 
@@ -112,11 +110,9 @@ struct Intro_Quiz: View {
         NavigationView{
             let filtrato : [Parola] = parole.filter{$0.categoria == categoriaScelta}
         ZStack{
-        
         VStack{
                 ScrollView(.vertical){
                     VStack(alignment: .center, spacing: 10){
-                        
                         ForEach (filtrato) { parolina in
                             CardView(parola: parolina)
                         }
@@ -125,24 +121,11 @@ struct Intro_Quiz: View {
                 }.navigationTitle(categoriaScelta).padding(.horizontal).font(.title)
                            }
                    
-       Button(action: {
-                  print("button pressed")
-
-                }) {
-                    
-                   Text ("Take the Quiz")
-                        .font(.title3.bold())
-                }
-                .buttonStyle(GrowingButton())
-                .background(
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill(Color.blue)
-                                .shadow(color: .gray, radius: 2, x: 2, y: 2)
-                    )
-                .frame(maxHeight: .infinity,  alignment: .bottom)
+            NavigationLink(destination: QuizScene(parole_livello: filtrato)) {
+                QuizButton()
+            }
         }
-    }
-        
+        }
 }
 }
 
