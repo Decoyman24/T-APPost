@@ -153,7 +153,7 @@ struct Intro_Quiz: View {
 
 struct QuizDash_Previews: PreviewProvider {
     static var previews: some View {
-        Intro_Quiz(categoriaScelta: "Greetings")
+        QuizDash()
     }
 }
 }
