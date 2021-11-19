@@ -8,54 +8,12 @@
 import SwiftUI
 import Foundation
 
-//struct Category : Identifiable {
-//    var id = UUID()
-//    var name: String
-//}
-//
-//    var categories : [Category] = [
-//    Category(name: "Greetings"),
-//    Category(name: "Daily Life"),
-//    Category(name:"Romance "),
-//    Category(name:"Danger Zone")
-//    ]
-//
+
 var categories = ["Greetings", "Daily Life", "Romance", "Danger Zone"]
     
 var levels = ["Chiattillo", "Scugnizzo", "Sarracino", "Cafone"]
 
 //card per la presentazione ad ogni livello
-struct CardView : View {
-  
-    var parola : Parola
-   
-    
-    var body: some View{
-        
-        ZStack{
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .fill(Color.gray)
-            
-            VStack (alignment: .leading, spacing: 10){
-                Spacer()
-                Text(parola.nome)
-                    .padding(10)
-                    .font(.title2.bold())
-                    .foregroundColor(.black)
-                    
-//                Spacer()
-                Text(parola.descrizione)
-                    .padding(10)
-                        .multilineTextAlignment(.leading)
-                        .font(.body)
-                        
-                    Spacer()
-            }
-//            .layoutPriority(100)
-        }
-        .padding([.top, .horizontal, .leading, .trailing])
-    }
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -80,6 +38,7 @@ struct QuizDash: View{
 
     
     var body: some View{
+        NavigationView{
         
         VStack(spacing: 10){
                    
@@ -101,9 +60,12 @@ struct QuizDash: View{
                             Spacer()
             VStack(spacing:20){
                     Group {
-                        Button(action: {}) {
-                                Text(categories[0])
-                            }
+                        
+                        
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[0])) {
+                            ButtonView(livello: categories[0])
+                        }
+                        
 
                             Button("\(categories[1])") {
                             }
@@ -137,6 +99,7 @@ struct QuizDash: View{
     
 }
 }
+}
 
 
 //view della pagina di presentazione per ciascun livello con le card che descrivono le parole
@@ -145,14 +108,12 @@ struct Intro_Quiz: View {
    var categoriaScelta: String
     
     var body: some View {
-        let filtrato : [Parola] = parole.filter{$0.categoria == categoriaScelta}
+        NavigationView{
+            let filtrato : [Parola] = parole.filter{$0.categoria == categoriaScelta}
         ZStack{
         
         VStack{
-            NavigationView {
                 ScrollView(.vertical){
-                    
-               
                     VStack(alignment: .center, spacing: 10){
                         
                         ForEach (filtrato) { parolina in
@@ -160,29 +121,11 @@ struct Intro_Quiz: View {
                             CardView(parola: parolina)
                         }
                         
-        }.frame(maxWidth: .infinity) //fine vstack
-                }
-                
-                
-                    
-                           .navigationTitle("Greetings")
-                           .toolbar {
-                               ToolbarItem(placement: .navigationBarLeading) {
-                                   Button("Back") {
-                    
-                                       print("premuto back")
-                               }
+        }.frame(maxHeight: .infinity) //fine vstack
+                }.navigationTitle(categoriaScelta).padding(.horizontal).font(.title)
                            }
-                   }
-                
-            }
-        
-            
-            
-        } //fine seconda vstack
-        
-           
-        Button(action: {
+                   
+       Button(action: {
                   print("button pressed")
 
                 }) {
@@ -197,9 +140,9 @@ struct Intro_Quiz: View {
                                 .shadow(color: .gray, radius: 2, x: 2, y: 2)
                     )
                 .frame(maxHeight: .infinity,  alignment: .bottom)
+        }
     }
         
-}
 }
 
 
@@ -210,7 +153,8 @@ struct Intro_Quiz: View {
 
 struct QuizDash_Previews: PreviewProvider {
     static var previews: some View {
-        QuizDash()
+        Intro_Quiz(categoriaScelta: "Greetings")
     }
+}
 }
 
