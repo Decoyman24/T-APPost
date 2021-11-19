@@ -101,18 +101,7 @@ struct QuizDash: View{
                             Spacer()
             VStack(spacing:20){
                     Group {
-                        Button(action: {}) {
-                                Text(categories[0])
-                            }
-
-                            Button("\(categories[1])") {
-                            }
-
-                            Button("\(categories[2])") {
-                            }
-
-                            Button("\(categories[3])") {
-                            }
+                       
                         }
 
                         .padding(10).scenePadding(.vertical)
