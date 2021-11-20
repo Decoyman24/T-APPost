@@ -10,14 +10,14 @@ import SwiftUI
 
 struct circleShape: View {
     var body: some View {
-       Image ("MarioRossi-1")
+        Image ("MarioRossi-1")
             .resizable()
             .frame(width: 150, height: 150)
             .clipShape(Circle())
             .overlay {
                 Circle().stroke(.blue, lineWidth: 2)
-                       }
-            
+            }
+        
     }
 }
 

@@ -11,21 +11,21 @@ import AVFoundation
 
 
 struct ArchiveView: View {
-
+    
     @State var selezionato = 0
     
     let livello1 : [Parola] = parole.filter{$0.categoria == "Greetings"}
     let livello2 : [Parola] = parole.filter{$0.categoria == "Daily Life"}
     let livello3 : [Parola] = parole.filter{$0.categoria == "Romance"}
     let livello4 : [Parola] = parole.filter{$0.categoria == "Danger Zone"}
-
+    
     var body: some View {
         //NavigationView che usa i nomi delle parole della lista come link, per poi rimandarti a DetailView (passa come parametro l'intera parola compresa di nome, descrizione e proprietà)
-       
+        
         
         NavigationView{
             VStack{
-
+                
                 Picker(selection: $selezionato, label: Text("segmented bar")) {
                     Text("Greetings").tag(0)
                     Text("Daily Life").tag(1)
@@ -34,59 +34,59 @@ struct ArchiveView: View {
                 }
                 .pickerStyle(.segmented)
                 
-            
+                
                 switch selezionato {
                     
                 case 0 :
-                List (livello1) { parola in
-                NavigationLink(destination: DetailView(parol: parola)){
-                    Text(parola.nome)
-                        .fontWeight(.medium)
-                }.navigationBarTitle("Archive")
-            }
+                    List (livello1) { parola in
+                        NavigationLink(destination: DetailView(parol: parola)){
+                            Text(parola.nome)
+                                .fontWeight(.medium)
+                        }.navigationBarTitle("Archive")
+                    }
                     
                 case 1:
                     List (livello2) { parola in
-                    NavigationLink(destination: DetailView(parol: parola)){
-                        Text(parola.nome)
-                            .fontWeight(.medium)
-                    }.navigationBarTitle("Archive")
-                }
+                        NavigationLink(destination: DetailView(parol: parola)){
+                            Text(parola.nome)
+                                .fontWeight(.medium)
+                        }.navigationBarTitle("Archive")
+                    }
                 case 2:
                     List (livello3) { parola in
-                    NavigationLink(destination: DetailView(parol: parola)){
-                        Text(parola.nome)
-                            .fontWeight(.medium)
-                    }.navigationBarTitle("Archive")
-                }
+                        NavigationLink(destination: DetailView(parol: parola)){
+                            Text(parola.nome)
+                                .fontWeight(.medium)
+                        }.navigationBarTitle("Archive")
+                    }
                 default:
                     List (livello4) { parola in
-                    NavigationLink(destination: DetailView(parol: parola)){
-                        Text(parola.nome)
-                            .fontWeight(.medium)
-                    }.navigationBarTitle("Archive")
-                }
+                        NavigationLink(destination: DetailView(parol: parola)){
+                            Text(parola.nome)
+                                .fontWeight(.medium)
+                        }.navigationBarTitle("Archive")
+                    }
                     
+                }
             }
-            }
-            }.padding()
+        }.padding()
         
-        }
+    }
 }
-        
+
 //View della singola parola dove troverai descrizione, audio ed esempio in una converazione
 struct DetailView: View {
     let parol : Parola //la parola con tutti i suoi parametri che abbiamo preso dalla NavigationView
-      
+    
     var body: some View {
         VStack{
             
             
-Spacer()
+            Spacer()
             Text (parol.nome)
                 .font(.title2.bold().italic())
                 .frame(maxWidth: .infinity, alignment: .leading)
-                Spacer()
+            Spacer()
             Text(parol.descrizione)
             Spacer()
         }

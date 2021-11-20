@@ -13,7 +13,7 @@ struct BadgeView: View {
     var body: some View {
         
         ZStack{
-        
+            
             RoundedRectangle(cornerRadius: 20)
                 .stroke(Color.blue, lineWidth: 1)
             Text(badgio)

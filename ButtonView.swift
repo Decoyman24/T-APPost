@@ -11,26 +11,26 @@
 import SwiftUI
 
 struct ButtonView : View {
-//  view che sostituisce il bottone nella dashboard quiz poichè non funzione un cazzo con ui button
-    var livello : String 
-       
+    //  view che sostituisce il bottone nella dashboard quiz poichè non funzione un cazzo con ui button
+    var livello : String
+    
     var body: some View{
         
         ZStack{
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .fill(Color.blue)
-                            .scaledToFit()
+                .fill(Color.blue)
+                .scaledToFit()
             VStack (alignment: .leading, spacing: 10){
                 Text(livello)
                     .font(.title2)
                     .foregroundColor(.white)
                     .scaledToFit()
-                   
-                    
+                
+                
                 //                Spacer()
             }
         }
-//        .padding([.top, .horizontal, .leading, .trailing])
+        //        .padding([.top, .horizontal, .leading, .trailing])
     }
 }
 

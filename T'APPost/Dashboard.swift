@@ -11,9 +11,6 @@ import Foundation
 
 struct Dashboard: View {
     
-    var nome = "okok"
-    var percentuale = 25
-    
     let columns = [
         GridItem(spacing: 150),
         GridItem(spacing: 150)]
@@ -25,7 +22,7 @@ struct Dashboard: View {
     
     let achievements = [
         "a","b","c","d","e","f"
-        ]
+    ]
     
     var body: some View {
         
@@ -36,50 +33,50 @@ struct Dashboard: View {
                 .foregroundColor(Color.blue)
                 .fontWeight(.heavy)
                 .padding(5.0)
-                
             
-//            Spacer()
-              
-                circleShape()
-            Text("\(nome)")
+            
+            //            Spacer()
+            
+            circleShape()
+            Text("Your level is:")
                 .font(.title)
                 .fontWeight(.medium)
                 .padding(1)
-            Text("Lv. \(levels[0])").italic()
-            ProgressView(value: 0.2)
-            Text("\(percentuale)%")
+            Text("\(ourUser.userTitle)").italic()
+            ProgressView(value: perc)
+            Text("\(ourUser.progress)%")
             ScrollView{
                 
-//
-//            Text("Achievements")
-//                .font(.title)
-//                .foregroundColor(Color.blue)
-//                .fontWeight(.regular)
-//                .padding(5.0)
-//                .frame(maxWidth: .infinity, alignment: .leading)
-//
-//            Divider()
-//
-//                LazyVGrid(columns: columns, content: {
-//
-//                    ForEach(achievements, id: \.self){
-//                        achievement in
-//                        HStack{
-//
-//                        Image(systemName: "person")
-//                          Text(achievement)
-//
-//                        }
-//                    }
-//                })
-                        
-                        
-                        Text("Badges")
-                            .font(.title)
-                            .foregroundColor(Color.blue)
-                            .fontWeight(.regular)
-                            .padding(5.0)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                //
+                //            Text("Achievements")
+                //                .font(.title)
+                //                .foregroundColor(Color.blue)
+                //                .fontWeight(.regular)
+                //                .padding(5.0)
+                //                .frame(maxWidth: .infinity, alignment: .leading)
+                //
+                //            Divider()
+                //
+                //                LazyVGrid(columns: columns, content: {
+                //
+                //                    ForEach(achievements, id: \.self){
+                //                        achievement in
+                //                        HStack{
+                //
+                //                        Image(systemName: "person")
+                //                          Text(achievement)
+                //
+                //                        }
+                //                    }
+                //                })
+                
+                
+                Text("Badges")
+                    .font(.title)
+                    .foregroundColor(Color.blue)
+                    .fontWeight(.regular)
+                    .padding(5.0)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()
                 Spacer()
                 Spacer()
@@ -87,10 +84,10 @@ struct Dashboard: View {
                 Spacer()
                 LazyHGrid(rows: rows, content: {
                     
-                ForEach(badges, id:\.self) { badge in
+                    ForEach(badges, id:\.self) { badge in
                         BadgeView(badgio: badge.icon, greys: badge.greyness)
-                        }
                     }
+                }
                 )
             }
         }.padding()
@@ -99,7 +96,7 @@ struct Dashboard: View {
 
 struct Dash_Previews: PreviewProvider {
     static var previews: some View {
-        Dashboard()
+        Dashboard().preferredColorScheme(.light)
     }
 }
 
