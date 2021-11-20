@@ -6,9 +6,7 @@
 //
 
 import Foundation
-var categories = ["Greetings", "Daily life", "Romance", "Danger Zone"]
 // I livelli sono: Chiattillo, Scugnizzo, Sarracino, Cafone
-
 struct Utente {
     var greetingsUnlocked : Bool
     var dailyLifeUnlocked: Bool

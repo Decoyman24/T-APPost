@@ -26,7 +26,6 @@ struct Dashboard: View {
     let achievements = [
         "a","b","c","d","e","f"
         ]
-    let badges = ["👋🏼","🤌🏼","🛒","🍕","✊🏼","💋","🤬","👊🏼"]
     
     var body: some View {
         
@@ -51,28 +50,28 @@ struct Dashboard: View {
             Text("\(percentuale)%")
             ScrollView{
                 
-                
-            Text("Achievements")
-                .font(.title)
-                .foregroundColor(Color.blue)
-                .fontWeight(.regular)
-                .padding(5.0)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            Divider()
-            
-                LazyVGrid(columns: columns, content: {
-                    
-                    ForEach(achievements, id: \.self){
-                        achievement in
-                        HStack{
-                        
-                        Image(systemName: "person")
-                          Text(achievement)
-                            
-                        }
-                    }
-                })
+//
+//            Text("Achievements")
+//                .font(.title)
+//                .foregroundColor(Color.blue)
+//                .fontWeight(.regular)
+//                .padding(5.0)
+//                .frame(maxWidth: .infinity, alignment: .leading)
+//
+//            Divider()
+//
+//                LazyVGrid(columns: columns, content: {
+//
+//                    ForEach(achievements, id: \.self){
+//                        achievement in
+//                        HStack{
+//
+//                        Image(systemName: "person")
+//                          Text(achievement)
+//
+//                        }
+//                    }
+//                })
                         
                         
                         Text("Badges")
@@ -88,22 +87,13 @@ struct Dashboard: View {
                 Spacer()
                 LazyHGrid(rows: rows, content: {
                     
-                    ForEach(badges, id: \.self){
-                        badge in
-                        ZStack{
-                        
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.blue, lineWidth: 1)
-                            Text(badge)
-                                .font(.system(size: 55))
+                ForEach(badges, id:\.self) { badge in
+                        BadgeView(badgio: badge.icon, greys: badge.greyness)
                         }
                     }
-                })
-            
+                )
             }
-        
         }.padding()
-        
     }
 }
 
@@ -112,3 +102,4 @@ struct Dash_Previews: PreviewProvider {
         Dashboard()
     }
 }
+

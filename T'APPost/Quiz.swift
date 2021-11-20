@@ -13,6 +13,7 @@ var categories = ["Greetings", "Daily Life", "Romance", "Danger Zone"]
     
 var levels = ["Chiattillo", "Scugnizzo", "Sarracino", "Cafone"]
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 //  style bottone per il quiz ////////////////
@@ -31,8 +32,10 @@ struct GrowingButton: ButtonStyle {
 
 
 struct QuizDash: View{
-    
-    @State private var unlocked = false
+    @State var unlockedGreetings = true
+    @State var unlockedDailyLife = true
+    @State var unlockedRomance = true
+    @State var unlockedDZ = true
 
     
     var body: some View{
@@ -52,7 +55,7 @@ struct QuizDash: View{
                       
                         circleShape()
                             
-                    Text("Lv. \(levels[0])").italic()
+            Text("Lv. \(levels[0])").italic()
                             
                             Divider()
                             Spacer()
@@ -60,20 +63,20 @@ struct QuizDash: View{
                     Group {
                                                 
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[0])) {
-                            ButtonView(livello: categories[0])
+                            ButtonView(livello: categories[0], sbloccato: unlockedGreetings)
                         }
                         
                         
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1])) {
-                            ButtonView(livello: categories[1])
+                            ButtonView(livello: categories[1], sbloccato: unlockedDailyLife)
                         }
                         
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2])) {
-                            ButtonView(livello: categories[2])
+                            ButtonView(livello: categories[2], sbloccato: unlockedRomance)
                         }
                         
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[3])) {
-                            ButtonView(livello: categories[3])
+                            ButtonView(livello: categories[3], sbloccato: unlockedDZ)
                         }
                         
                         }
@@ -123,7 +126,7 @@ struct Intro_Quiz: View {
                         
         }.frame(maxHeight: .infinity)
                 }.navigationTitle(categoriaScelta).padding(.horizontal).font(.title)
-                           }
+            }
                    
        Button(action: {
                   print("button pressed")
