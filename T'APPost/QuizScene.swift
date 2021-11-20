@@ -9,7 +9,10 @@ import Foundation
 import SwiftUI
 
 struct QuizScene: View {
+    let parole_livello : [Parola]
+    
     var body: some View {
+        
         
     VStack(spacing:10){
                
@@ -57,14 +60,15 @@ struct QuizScene: View {
         Text("1/5").fontWeight(.thin)
         
         Spacer()
-    }.preferredColorScheme(.dark)
+    }
+//    .preferredColorScheme(.dark)
            
     }
     
 }
 
-struct QuizScene_Previews: PreviewProvider {
-    static var previews: some View {
-        QuizScene()
-    }
-}
+//struct QuizScene_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuizScene()
+//    }
+//}
