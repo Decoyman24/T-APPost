@@ -42,6 +42,8 @@ struct QuizButton : View {
 struct QuizDash: View{
     var categories = ["Greetings", "Daily Life", "Romance", "Danger Zone"]
     
+    @State var isActive : Bool = false // mi servirà per passare tra le views con navigation sovrapporre le barre
+
     var body: some View{
         NavigationView{
             VStack(spacing: 10){
@@ -50,8 +52,7 @@ struct QuizDash: View{
                     .foregroundColor(Color.blue)
                     .fontWeight(.heavy)
                     .padding()
-                Spacer()
-                
+//                Spacer()
                 circleShape()
                 
                 Text("Your level: \(ourUser.userTitle)").italic()
@@ -61,18 +62,29 @@ struct QuizDash: View{
                 
                 VStack(spacing:10){
                     Group {
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[0])) {
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[0], rootIsActive: self.$isActive), isActive: self.$isActive) {
                             ButtonView(livello: categories[0])
                         }
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1])) {
+                        .isDetailLink(false)
+
+                        
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1], rootIsActive: self.$isActive), isActive: self.$isActive) {
                             ButtonView(livello: categories[1])
                         }
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2])) {
+                        .isDetailLink(false)
+                        
+                        
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2], rootIsActive: self.$isActive),isActive: self.$isActive ) {
                             ButtonView(livello: categories[2])
                         }
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[3])) {
+                        .isDetailLink(false)
+
+
+
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[3], rootIsActive: self.$isActive), isActive: self.$isActive) {
                             ButtonView(livello: categories[3])
                         }
+                        .isDetailLink(false)
                     }
                     
                     .padding(20).scenePadding(.vertical)
@@ -85,9 +97,6 @@ struct QuizDash: View{
                     Spacer()
                 }
                 //                        .preferredColorScheme(.dark)
-                Spacer()
-                Spacer()
-                Spacer()
                 
             }.padding(.horizontal, 30.0)
             
@@ -100,9 +109,10 @@ struct QuizDash: View{
 
 struct Intro_Quiz: View {
     var categoriaScelta: String
+    @Binding var rootIsActive : Bool // variabile che prendo dalla view quizDAsh che mi serve per continuare con la navigazione
     
     var body: some View {
-        NavigationView{
+//        NavigationView{
             let filtrato : [Parola] = parole.filter{$0.categoria == categoriaScelta}
             ZStack{
                 VStack{
@@ -115,15 +125,24 @@ struct Intro_Quiz: View {
                             
                         }.frame(maxHeight: .infinity)
                     }.navigationTitle("\(categoriaScelta) quiz").padding(.horizontal).font(.title)
-                }
                 
-                NavigationLink(destination: QuizScene(parole_livello: filtrato)) {
+                }
+//                questa view chiamata loading mi permette poi di switchare le views in base al quiz che voglio fare per ogni livello in base alla categoria che mi viene passata
+                NavigationLink(destination: LoadiungViewQuiz(variabilleAppoggio_categoria_scelta: categoriaScelta, passaggio_view_appoggio: self.$rootIsActive)) {
                     QuizButton()
                 }
+                .isDetailLink(false)
+                .navigationBarTitle("bho")
+                
+                
+//                NavigationLink(destination: QuizScene(parole_livello: filtrato)) {
+//                    QuizButton()
+//                }
             }
         }
+//        }
     }
-}
+
 ///
 ///
 ///
