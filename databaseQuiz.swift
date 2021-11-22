@@ -28,7 +28,7 @@ let greetings : [Domandaquiz] = [
     Domandaquiz(categoria: "Greetings", domanda: "E'stat na bell serata frà, ____ " , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà"),
     Domandaquiz(categoria: "Greetings", domanda: "___, comm stai frà?" , question: "___, how you doing?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
     Domandaquiz(categoria: "Greetings", domanda: "ultimo di greetings " , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà")
-   ]
+]
 
 let dailylife : [Domandaquiz] = [
     Domandaquiz(categoria: "Daily Life", domanda: "sto in daily life" , question: "vediamo che succede?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
@@ -37,7 +37,7 @@ let dailylife : [Domandaquiz] = [
     Domandaquiz(categoria: "Daily Life", domanda: "E'stat na bell serata frà, ____ " , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà"),
     Domandaquiz(categoria: "Daily Life", domanda: "___, comm stai frà?" , question: "___, how you doing?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
     Domandaquiz(categoria: "Daily Life", domanda: "ultimo di daily life " , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà")
-   ]
+]
 
 
 let romance : [Domandaquiz] = [
@@ -47,7 +47,7 @@ let romance : [Domandaquiz] = [
     Domandaquiz(categoria: "Romance", domanda: "E'stat na bell serata frà, ____ " , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà"),
     Domandaquiz(categoria: "Romance", domanda: "___, comm stai frà?" , question: "___, how you doing?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
     Domandaquiz(categoria: "Romance", domanda: "ultimo di romance" , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà")
-   ]
+]
 
 let dangerzone : [Domandaquiz] = [
     Domandaquiz(categoria: "Danger Zone", domanda: "entro in danger zone" , question: "vediamo che succede?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
@@ -56,6 +56,6 @@ let dangerzone : [Domandaquiz] = [
     Domandaquiz(categoria: "Danger Zone", domanda: "E'stat na bell serata frà, ____ " , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà"),
     Domandaquiz(categoria: "Romance", domanda: "___, comm stai frà?" , question: "___, how you doing?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
     Domandaquiz(categoria: "Danger Zone", domanda: "ultimo di danger zone" , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà")
-
-
+    
+    
 ]

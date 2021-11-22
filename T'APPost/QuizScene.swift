@@ -10,17 +10,17 @@ import SwiftUI
 
 
 
-struct LoadiungViewQuiz : View {
+struct LoadingViewQuiz : View {
     var variabilleAppoggio_categoria_scelta : String
-
-  @State var Quiz_del_livello_da_visualizzare = 0
+    
+    @State var Quiz_del_livello_da_visualizzare = 0
     
     @Binding var passaggio_view_appoggio : Bool   //variabile che prendo da IntroQuiz che mi serve per continuare con la navigazione nelle varie Quizscene
     
-
     
-    var body: some View {        
-
+    
+    var body: some View {
+        
         switch variabilleAppoggio_categoria_scelta {
             
         case "Greetings":
@@ -38,12 +38,12 @@ struct LoadiungViewQuiz : View {
             case 5 :
                 QuizScene(domande_da_usare: greetings[5], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             default :
-//                caso default dello switch. Per sicurezza ho messo quizdash, ma qua non ci deve proprio entrare
-               QuizDash()
-//            self.shouldPopToRootView = false
+                //                caso default dello switch. Per sicurezza ho messo quizdash, ma qua non ci deve proprio entrare
+                QuizDash()
+                //            self.shouldPopToRootView = false
             }
             
-
+            
         case "Daily Life":
             switch Quiz_del_livello_da_visualizzare{
             case 0:
@@ -61,7 +61,7 @@ struct LoadiungViewQuiz : View {
             default :
                 QuizDash()
             }
-
+            
         case "Romance":
             switch Quiz_del_livello_da_visualizzare{
             case 0:
@@ -82,7 +82,7 @@ struct LoadiungViewQuiz : View {
             
             
         case "Danger Zone": //in questo default deve andare l'ultimo caso ossi la Danger Zone, che non viene intercettate da nessuno dei casi precedenti
-//            il for each non va bene e deve essere sostituito da un ulteriore switch
+            //            il for each non va bene e deve essere sostituito da un ulteriore switch
             switch Quiz_del_livello_da_visualizzare{
             case 0:
                 QuizScene(domande_da_usare: dangerzone[0], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
@@ -103,26 +103,26 @@ struct LoadiungViewQuiz : View {
         default:
             QuizDash()
         }
-        }
     }
+}
 
 
 
 struct QuizScene: View {
-
-   let domande_da_usare : Domandaquiz
+    
+    let domande_da_usare : Domandaquiz
     @State private var showingAlertcorretta = false
     @State private var showingAlert_sbaliata = false
     @State private var showingAlert_sbaliata_wrong = false
     
     @Binding var quiz_liv_da_visualizzare : Int
     @Binding var torniamo_alla_dash : Bool //variabile di appoggio, legata alla navigazione, che mi permette di tonrare alla dashboard quando clicco sull'ultimo buttone Next dell'ultima alert per ogni quiz (per livello)
-
     
-
+    
+    
     
     var body: some View {
-//        NavigationView{
+        //        NavigationView{
         
         VStack(spacing:10){
             Text("Quiz")
@@ -146,7 +146,7 @@ struct QuizScene: View {
             Spacer()
             Group{
                 Button(domande_da_usare.sbagliata) {
-                showingAlert_sbaliata = true
+                    showingAlert_sbaliata = true
                 }
                 .alert(isPresented:$showingAlert_sbaliata) {
                     Alert(
@@ -154,7 +154,7 @@ struct QuizScene: View {
                         message: Text("Looks like you need to check the words and their meaning again"),
                         dismissButton: .default(Text("Try again"))
                     )
-                       }
+                }
                 
                 
                 
@@ -168,16 +168,16 @@ struct QuizScene: View {
                         message: Text("You know how to use this word. Try to use it in everyday life"),
                         dismissButton: .default(Text("Next"), action: {
                             if (quiz_liv_da_visualizzare != 5){  //fatto così per ora per avere il codice funzionanate ma se riuscite in modo più pulito cambiate
-                            quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande  (da 6 paroole) questa variabile fa da conteggio
-//                            l'if statement mi serve per capire che quando sto nei casi da 0 a 4 allora devo passare a leggere l'elemento successivo dell'array mentre se sto nel caso 5 significa che devo tornare alla dash perchè le domande per questo livello sono finite.
-//                            AL MASSIMO SI DEVE SOLO IMPLEMENTARE UNA VARIABILE DI CONTROLLO CHE PER IL LIVELLO DANGER ZONE DEVE CONTARE FINO A 5 (magri controllo con categoria == "Danger Zone")
+                                quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande  (da 6 paroole) questa variabile fa da conteggio
+                            //                            l'if statement mi serve per capire che quando sto nei casi da 0 a 4 allora devo passare a leggere l'elemento successivo dell'array mentre se sto nel caso 5 significa che devo tornare alla dash perchè le domande per questo livello sono finite.
+                            //                            AL MASSIMO SI DEVE SOLO IMPLEMENTARE UNA VARIABILE DI CONTROLLO CHE PER IL LIVELLO DANGER ZONE DEVE CONTARE FINO A 5 (magri controllo con categoria == "Danger Zone")
                             else {
                                 self.torniamo_alla_dash = false   //cambiando lo state della variabile a false posso triggare la navigatuion che mi riporta alla view iniziale della Dash
                             }
                             
                         })
                     )
-                   
+                    
                 }
                 
                 
@@ -191,7 +191,7 @@ struct QuizScene: View {
                         message: Text("Looks like you need to chech the words and their meaning again"),
                         dismissButton: .default(Text("Go back!"))
                     )
-                       }
+                }
                 
                 
                 
@@ -201,7 +201,7 @@ struct QuizScene: View {
                 .cornerRadius(25)
                 .font(.title)
                 .foregroundColor(Color.white)
-    
+            
             Spacer()
             
             Text("\(quiz_liv_da_visualizzare + 1)").fontWeight(.thin)
@@ -209,11 +209,11 @@ struct QuizScene: View {
             Spacer()
         }
         //    .preferredColorScheme(.dark)
-      
-//        }
+        
+        //        }
     }
     
-
+    
     
 }
 
