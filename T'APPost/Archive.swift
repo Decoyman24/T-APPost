@@ -38,35 +38,85 @@ struct ArchiveView: View {
                 switch selezionato {
                     
                 case 0 :
+                    if (ourUser.greetingsUnlocked){
                     List (livello1) { parola in
                         NavigationLink(destination: DetailView(parol: parola)){
                             Text(parola.nome)
                                 .fontWeight(.medium)
                         }.navigationBarTitle("Archive")
+                        }
                     }
+                        else {
+                            Spacer()
+                            Text("You haven't completed the Greetings quiz yet!")
+                                .padding([.horizontal, .vertical])
+                                .multilineTextAlignment(.center)
+                                .font(.title)
+                                .navigationBarTitle("Archive")
+                                
+                            Spacer()
+                        }
+                    
                     
                 case 1:
+                    if (ourUser.dailyLifeUnlocked){
                     List (livello2) { parola in
                         NavigationLink(destination: DetailView(parol: parola)){
                             Text(parola.nome)
                                 .fontWeight(.medium)
                         }.navigationBarTitle("Archive")
                     }
+                    }
+                    else {
+                        Spacer()
+                        Text("You haven't completed the Daily Life quiz yet!")
+                            .padding([.horizontal, .vertical])
+                            .multilineTextAlignment(.center)
+                            .font(.title)
+                            .navigationBarTitle("Archive")
+                            
+                        Spacer()
+                    }
+                    
                 case 2:
+                    if (ourUser.romanceUnlocked){
                     List (livello3) { parola in
                         NavigationLink(destination: DetailView(parol: parola)){
                             Text(parola.nome)
                                 .fontWeight(.medium)
                         }.navigationBarTitle("Archive")
                     }
+                    }
+                    else {
+                        Spacer()
+                        Text("You haven't completed the Romance quiz yet!")
+                            .padding([.horizontal, .vertical])
+                            .multilineTextAlignment(.center)
+                            .font(.title)
+                            .navigationBarTitle("Archive")
+                            
+                        Spacer()
+                    }
+                    
                 default:
+                    if (ourUser.dangerZoneUnlocked){
                     List (livello4) { parola in
                         NavigationLink(destination: DetailView(parol: parola)){
                             Text(parola.nome)
                                 .fontWeight(.medium)
                         }.navigationBarTitle("Archive")
                     }
-                    
+                    }
+                    else {
+                        Spacer()
+                        Text("You haven't completed the Danger Zone quiz yet!")
+                            .padding([.horizontal, .vertical])
+                            .multilineTextAlignment(.center)
+                            .font(.title)
+                            .navigationBarTitle("Archive")
+                            
+                        Spacer()
+                    }
                 }
             }
         }.padding()
@@ -80,14 +130,12 @@ struct DetailView: View {
     
     var body: some View {
         VStack{
-            
-            
             Spacer()
             Text (parol.nome)
                 .font(.title2.bold().italic())
                 .frame(maxWidth: .infinity, alignment: .leading)
-            Spacer()
             Text(parol.descrizione)
+            Spacer()
             Spacer()
         }
         .navigationBarTitle(Text(parol.categoria), displayMode: .inline)
