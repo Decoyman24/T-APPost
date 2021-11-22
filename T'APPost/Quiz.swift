@@ -105,6 +105,7 @@ struct QuizDash: View{
                 
             }.padding(.horizontal, 30.0)
             
+    
         }
     }
 }
