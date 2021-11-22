@@ -43,16 +43,19 @@ struct QuizDash: View{
     var categories = ["Greetings", "Daily Life", "Romance", "Danger Zone"]
     
     @State var isActive : Bool = false // mi servirà per passare tra le views con navigation sovrapporre le barre
+    @State var isActive1 : Bool = false
+    @State var isActive2 : Bool = false
+    @State var isActive3 : Bool = false
 
     var body: some View{
         NavigationView{
-            VStack(spacing: 10){
+            VStack{
                 Text("Quiz")
                     .font(.largeTitle)
                     .foregroundColor(Color.blue)
                     .fontWeight(.heavy)
-                    .padding()
-//                Spacer()
+//                    .padding()
+                Spacer()
                 circleShape()
                 
                 Text("Your level: \(ourUser.userTitle)").italic()
@@ -68,20 +71,20 @@ struct QuizDash: View{
                         .isDetailLink(false)
 
                         
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1], rootIsActive: self.$isActive), isActive: self.$isActive) {
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1], rootIsActive: self.$isActive1), isActive: self.$isActive1) {
                             ButtonView(livello: categories[1])
                         }
                         .isDetailLink(false)
                         
                         
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2], rootIsActive: self.$isActive),isActive: self.$isActive ) {
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2], rootIsActive: self.$isActive2),isActive: self.$isActive2) {
                             ButtonView(livello: categories[2])
                         }
                         .isDetailLink(false)
 
 
 
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[3], rootIsActive: self.$isActive), isActive: self.$isActive) {
+                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[3], rootIsActive: self.$isActive3), isActive: self.$isActive3) {
                             ButtonView(livello: categories[3])
                         }
                         .isDetailLink(false)
@@ -100,6 +103,7 @@ struct QuizDash: View{
                 
             }.padding(.horizontal, 30.0)
             
+    
         }
     }
 }
@@ -132,7 +136,7 @@ struct Intro_Quiz: View {
                     QuizButton()
                 }
                 .isDetailLink(false)
-                .navigationBarTitle("bho")
+//                .navigationBarTitle("bho")
                 
                 
 //                NavigationLink(destination: QuizScene(parole_livello: filtrato)) {
