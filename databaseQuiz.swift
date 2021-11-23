@@ -22,12 +22,12 @@ struct Domandaquiz : Identifiable {
 //IMPORTANTISSIMO, il codice funziona contanto fino a 6 quindi o si mette un controllo per l'ultimo livello oppure si aggiunge una sesta parola all'ultimo livello
 //EVENTUALMENTE ALLA STRUCT POSSIAMO AGGIUNGERE UN ATTRIBUTO CHE CONSIDERA UN'IMMAGINE CHE SAREBBE QUELLA CHE VEDIAMO AD OGNI DOMANDE DI OGNI QUIZ PER OGNI LIVELLO, IN MODO CHE LA PASSIMAO COME PARAMETRO ALLA VIEW QuizScene
 let greetings : [Domandaquiz] = [
+    Domandaquiz(categoria: "Greetings", domanda: "__ , è succies coccos?" , question: "Hey , did something happen?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
+    Domandaquiz(categoria: "Greetings", domanda: "_________ fra, me n’aggia ij che teng che fa." , question: "See you bro, gotta go since I got stuff to do.", rispCorretta: "Ce verimm", sbagliata: "Scusat signò", errata: "Tutt'appost"),
+    Domandaquiz(categoria: "Greetings", domanda: "___________, me putit ricer addò sta o’ bagn?" , question: "Excuse me, can you tell me where the bathroom is?", rispCorretta: "Scusat signò", sbagliata: "Cià bell", errata: "Statte buono"),
+    Domandaquiz(categoria: "Greetings", domanda: "_________, tutt’appost?" , question: "Hey beautiful, you doin’ alright?", rispCorretta: "Cià bell", sbagliata: "Ce verimm", errata: "Statte buono"),
     Domandaquiz(categoria: "Greetings", domanda: "___, comm stai frà?" , question: "___, how you doing?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
-    Domandaquiz(categoria: "Greetings", domanda: "E'stat na bell serata frà, ____ " , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà"),
-    Domandaquiz(categoria: "Greetings", domanda: "___, comm stai frà?" , question: "___, how you doing?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
-    Domandaquiz(categoria: "Greetings", domanda: "E'stat na bell serata frà, ____ " , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà"),
-    Domandaquiz(categoria: "Greetings", domanda: "___, comm stai frà?" , question: "___, how you doing?", rispCorretta: "Uè", sbagliata: "T'appost", errata: "Ce verimm"),
-    Domandaquiz(categoria: "Greetings", domanda: "ultimo di greetings " , question: "It was a wonderful evening bro, ___", rispCorretta: "Ce verimm", sbagliata: "T'appost", errata: "Scusat signo', uè frà")
+    Domandaquiz(categoria: "Greetings", domanda: "Scus’ ma nun teng proprj genio e parlà cu te, ___________" , question: "I’m sorry but I don’t feel like talking with you, be well", rispCorretta: "Statte buon'", sbagliata: "Uè", errata: "Scusat signò")
 ]
 
 let dailylife : [Domandaquiz] = [

@@ -139,22 +139,24 @@ struct QuizScene: View {
         VStack(spacing:10){
             Text("Quiz")
                 .font(.largeTitle)
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color(UIColor.systemBlue))
                 .fontWeight(.heavy)
                 .padding(5.0)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             ZStack{
                 RoundedRectangle(cornerRadius: 20)
-                    .frame(height: 400).foregroundColor(Color.gray)
+                    .frame(height: 400).foregroundColor(Color(UIColor.systemGray6))
+                    .padding(.horizontal)
                 
                 VStack{
                     Image("buttBack")
-                    Text(domande_da_usare.domanda).foregroundColor(Color.black)
-                    Text(domande_da_usare.question).foregroundColor(Color.black)
+                    Group{
+                        Text(domande_da_usare.domanda).fontWeight(.medium).foregroundColor(Color.black).padding(.horizontal, 15).multilineTextAlignment(.center)
+                        Text(domande_da_usare.question).italic().foregroundColor(Color.black).padding(.horizontal, 15)
+                    }.padding(.horizontal).multilineTextAlignment(.center)
                 }
-            }
-            Spacer()
+            }.padding(.horizontal, 15)
             
             //            provaiamo ada avere bottoniu con risposte mischiate
             Group{
@@ -354,11 +356,12 @@ struct QuizScene: View {
                     }
                 }
                 
-            }.frame(maxWidth:320, maxHeight: 65, alignment: .center)
-                .background(.blue)
-                .cornerRadius(25)
-                .font(.title)
-                .foregroundColor(Color.white)
+            }.frame(maxWidth:220, maxHeight: 35, alignment: .center)
+                .padding(.vertical)
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(30)
+                .font(.title3)
+                .foregroundColor(Color(UIColor.systemBlue))
             
             
             //            Group{
