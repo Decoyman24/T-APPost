@@ -135,6 +135,11 @@ struct DetailView: View {
                 .font(.title2.bold().italic())
                 .frame(maxWidth: .infinity, alignment: .leading)
             Text(parol.descrizione)
+                .font(.body)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Text(parol.esempio)
+                .font(.body.italic())
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             Spacer()
         }

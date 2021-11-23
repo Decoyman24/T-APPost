@@ -12,9 +12,9 @@ struct T_APPostApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
-                Dashboard().tabItem{
-                    Label("Dashboard", systemImage: "circle.dashed.inset.filled")
-                }
+//                Dashboard().tabItem{
+//                    Label("Dashboard", systemImage: "circle.dashed.inset.filled")
+//                }
                 QuizDash().tabItem{
                     Label("Quiz", systemImage: "questionmark")
                 }
