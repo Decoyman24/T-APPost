@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Dashboard: View {
-    
+    @ObservedObject var ourUser : Utente
     let columns = [
         GridItem(spacing: 150),
         GridItem(spacing: 150)]
@@ -25,23 +25,22 @@ struct Dashboard: View {
     ]
     
     var body: some View {
-        
+        var perc : Double = Double(ourUser.progress)/100.0
         VStack{
-            
             Text("Dashboard")
                 .font(.largeTitle)
                 .foregroundColor(Color.blue)
                 .fontWeight(.heavy)
                 .padding(5.0)
             
-            
             //            Spacer()
             
-            circleShape()
+            circleShape(ourUser: ourUser)
             Text("Your level is:")
                 .font(.title)
                 .fontWeight(.medium)
                 .padding(1)
+            
             Text("\(ourUser.userTitle)").italic()
             ProgressView(value: perc)
             Text("\(ourUser.progress)%")
@@ -94,9 +93,9 @@ struct Dashboard: View {
     }
 }
 
-struct Dash_Previews: PreviewProvider {
-    static var previews: some View {
-        Dashboard().preferredColorScheme(.light)
-    }
-}
+//struct Dash_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Dashboard().preferredColorScheme(.light)
+//    }
+//}
 

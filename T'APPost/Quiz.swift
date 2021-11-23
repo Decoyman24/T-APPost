@@ -40,6 +40,7 @@ struct QuizButton : View {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 struct QuizDash: View{
+    @ObservedObject var ourUser : Utente
     var categories = ["Greetings", "Daily Life", "Romance", "Danger Zone"]
     
     @State var isActive : Bool = false
@@ -56,7 +57,7 @@ struct QuizDash: View{
                     .foregroundColor(Color.blue)
                     .fontWeight(.heavy)
                 Spacer()
-                circleShape()
+                circleShape(ourUser: ourUser)
                 
                 Text("Your level: \(ourUser.userTitle)").italic()
                 
@@ -65,27 +66,27 @@ struct QuizDash: View{
                 
                 VStack(spacing:10){
                     Group {
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[0], rootIsActive: self.$isActive), isActive: self.$isActive) {
+                        NavigationLink(destination: Intro_Quiz(ourUser: ourUser, categoriaScelta: categories[0], rootIsActive: self.$isActive), isActive: self.$isActive) {
                             ButtonView(livello: categories[0])
                         }
                         .isDetailLink(false)
                         
                         
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1], rootIsActive: self.$isActive1), isActive: self.$isActive1) {
+                        NavigationLink(destination: Intro_Quiz(ourUser: ourUser, categoriaScelta: categories[1], rootIsActive: self.$isActive1), isActive: self.$isActive1) {
                             ButtonView(livello: categories[1])
                         }
                         .isDetailLink(false)
                         .disabled(ourUser.dailyLifeUnlocked == false)
                         
                         
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2], rootIsActive: self.$isActive2),isActive: self.$isActive2 ) {
+                        NavigationLink(destination: Intro_Quiz(ourUser: ourUser, categoriaScelta: categories[2], rootIsActive: self.$isActive2),isActive: self.$isActive2 ) {
                             ButtonView(livello: categories[2])
                         }
                         .isDetailLink(false)
                         .disabled(ourUser.romanceUnlocked == false)
                         
                         
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[3], rootIsActive: self.$isActive3), isActive: self.$isActive3) {
+                        NavigationLink(destination: Intro_Quiz(ourUser: ourUser, categoriaScelta: categories[3], rootIsActive: self.$isActive3), isActive: self.$isActive3) {
                             ButtonView(livello: categories[3])
                         }
                         .isDetailLink(false)
@@ -114,6 +115,7 @@ struct QuizDash: View{
 //view della pagina di presentazione per ciascun livello con le card che descrivono le parole
 
 struct Intro_Quiz: View {
+    @ObservedObject var ourUser : Utente
     var categoriaScelta: String
     @Binding var rootIsActive : Bool // variabile che prendo dalla view quizDAsh che mi serve per continuare con la navigazione
     
@@ -136,7 +138,7 @@ struct Intro_Quiz: View {
                 
             }
             //                questa view chiamata loading mi permette poi di switchare le views in base al quiz che voglio fare per ogni livello in base alla categoria che mi viene passata
-            NavigationLink(destination: LoadingViewQuiz(variabilleAppoggio_categoria_scelta: categoriaScelta, passaggio_view_appoggio: self.$rootIsActive)) {
+                NavigationLink(destination: LoadingViewQuiz(variabilleAppoggio_categoria_scelta: categoriaScelta, passaggio_view_appoggio: self.$rootIsActive, ourUser: ourUser)) {
                 QuizButton()
             }
             .isDetailLink(false)
@@ -156,10 +158,10 @@ struct Intro_Quiz: View {
 ///
 ///
 
-struct QuizDash_Previews: PreviewProvider {
-    static var previews: some View {
-        QuizDash()
-    }
-}
+//struct QuizDash_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuizDash()
+//    }
+//}
 
 

@@ -12,11 +12,9 @@ import SwiftUI
 
 struct LoadingViewQuiz : View {
     var variabilleAppoggio_categoria_scelta : String
-    
     @State var Quiz_del_livello_da_visualizzare = 0
-    
     @Binding var passaggio_view_appoggio : Bool   //variabile che prendo da IntroQuiz che mi serve per continuare con la navigazione nelle varie Quizscene
-    
+    @ObservedObject var ourUser : Utente
     
     
     var body: some View {
@@ -26,20 +24,20 @@ struct LoadingViewQuiz : View {
         case "Greetings":
             switch Quiz_del_livello_da_visualizzare{
             case 0:
-                QuizScene(domande_da_usare: greetings[0], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: greetings[0], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 1:
-                QuizScene (domande_da_usare: greetings[1], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene (ourUser: ourUser, domande_da_usare: greetings[1], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 2 :
-                QuizScene(domande_da_usare: greetings[2], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: greetings[2], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 3 :
-                QuizScene(domande_da_usare: greetings[3], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: greetings[3], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 4 :
-                QuizScene(domande_da_usare: greetings[4], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: greetings[4], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 5 :
-                QuizScene(domande_da_usare: greetings[5], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: greetings[5], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             default :
                 //                caso default dello switch. Per sicurezza ho messo quizdash, ma qua non ci deve proprio entrare
-                QuizDash()
+                QuizDash(ourUser: ourUser)
                 //            self.shouldPopToRootView = false
             }
             
@@ -47,37 +45,37 @@ struct LoadingViewQuiz : View {
         case "Daily Life":
             switch Quiz_del_livello_da_visualizzare{
             case 0:
-                QuizScene(domande_da_usare: dailylife[0], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dailylife[0], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 1:
-                QuizScene (domande_da_usare: dailylife[1], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene (ourUser: ourUser, domande_da_usare: dailylife[1], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 2 :
-                QuizScene(domande_da_usare: dailylife[2], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dailylife[2], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 3 :
-                QuizScene(domande_da_usare: dailylife[3], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dailylife[3], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 4 :
-                QuizScene(domande_da_usare: dailylife[4], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dailylife[4], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 5 :
-                QuizScene(domande_da_usare: dailylife[5], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dailylife[5], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             default :
-                QuizDash()
+                QuizDash(ourUser: ourUser)
             }
             
         case "Romance":
             switch Quiz_del_livello_da_visualizzare{
             case 0:
-                QuizScene(domande_da_usare: romance[0], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: romance[0], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 1:
-                QuizScene (domande_da_usare: romance[1], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene (ourUser: ourUser, domande_da_usare: romance[1], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 2 :
-                QuizScene(domande_da_usare: romance[2], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: romance[2], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 3 :
-                QuizScene(domande_da_usare: romance[3], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: romance[3], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 4 :
-                QuizScene(domande_da_usare: romance[4], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: romance[4], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 5 :
-                QuizScene(domande_da_usare: romance[5], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: romance[5], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             default :
-                QuizDash()
+                QuizDash(ourUser: ourUser)
             }
             
             
@@ -85,23 +83,23 @@ struct LoadingViewQuiz : View {
             //            il for each non va bene e deve essere sostituito da un ulteriore switch
             switch Quiz_del_livello_da_visualizzare{
             case 0:
-                QuizScene(domande_da_usare: dangerzone[0], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dangerzone[0], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 1:
-                QuizScene (domande_da_usare: dangerzone[1], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene (ourUser: ourUser, domande_da_usare: dangerzone[1], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 2 :
-                QuizScene(domande_da_usare: dangerzone[2], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dangerzone[2], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 3 :
-                QuizScene(domande_da_usare: dangerzone[3], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dangerzone[3], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 4 :
-                QuizScene(domande_da_usare: dangerzone[4], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dangerzone[4], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             case 5 :
-                QuizScene(domande_da_usare: dangerzone[5], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
+                QuizScene(ourUser: ourUser, domande_da_usare: dangerzone[5], quiz_liv_da_visualizzare: $Quiz_del_livello_da_visualizzare, torniamo_alla_dash: $passaggio_view_appoggio)
             default :
-                QuizDash()
+                QuizDash(ourUser: ourUser)
             }
             
         default:
-            QuizDash()
+            QuizDash(ourUser: ourUser)
         }
     }
 }
@@ -113,7 +111,7 @@ struct LoadingViewQuiz : View {
 //}
 
 struct QuizScene: View {
-    
+    @ObservedObject var ourUser : Utente
     let domande_da_usare : Domandaquiz
     @State private var showingAlertcorretta = false
     @State private var showingAlert_sbaliata = false
@@ -121,7 +119,6 @@ struct QuizScene: View {
     //    @State private var activeAlert: ActiveAlert
     @State private var showAlert = false
     @State var alertAttiva : Bool = false
-    
     
     
     @Binding var quiz_liv_da_visualizzare : Int
@@ -179,12 +176,18 @@ struct QuizScene: View {
                     if (alertAttiva) {
                         return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. Try to use it in everyday  life!"),   dismissButton: .default(Text("Next"), action: {
                             if (quiz_liv_da_visualizzare < 5){  //fatto così per ora per avere il codice funzionanate ma se riuscite in modo più pulito cambiate
-                                quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande  (da 6 paroole) questa variabile fa da conteggio
+                                quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande (da 6 parole) questa variabile fa da conteggio
                             else {
                                 if (domande_da_usare.categoria == "Greetings") {
-                                    
-                                    ourUser.dailyLifeUnlocked = true
-                                    self.torniamo_alla_dash = false
+                                    do {
+                                        ourUser.dailyLifeUnlocked = true
+                                        ourUser.profilePic = "SCUGNIZZO"
+                                        ourUser.userTitle = "Scugnizzo"
+                                        badges[1].greyness = 0.0
+                                        ourUser.progress = 25
+                                        self.torniamo_alla_dash = false
+                                        
+                                    }
                                     
                                 } else if (domande_da_usare.categoria == "Daily Life"){
                                     ourUser.romanceUnlocked = true

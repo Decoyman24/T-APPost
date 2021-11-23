@@ -9,16 +9,17 @@ import SwiftUI
 
 @main
 struct T_APPostApp: App {
+    @StateObject var ourUser = Utente()
     var body: some Scene {
         WindowGroup {
             TabView{
-                Dashboard().tabItem{
+                Dashboard(ourUser: ourUser).tabItem{
                     Label("Dashboard", systemImage: "circle.dashed.inset.filled")
                 }
-                QuizDash().tabItem{
+                QuizDash(ourUser: ourUser).tabItem{
                     Label("Quiz", systemImage: "questionmark")
                 }
-                ArchiveView().tabItem{
+                ArchiveView(ourUser: ourUser).tabItem{
                     Label("Archive", systemImage: "books.vertical.circle")
                 }
             }

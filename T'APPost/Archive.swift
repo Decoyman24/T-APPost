@@ -11,9 +11,8 @@ import AVFoundation
 
 
 struct ArchiveView: View {
-    
     @State var selezionato = 0
-    
+    @ObservedObject var ourUser : Utente
     let livello1 : [Parola] = parole.filter{$0.categoria == "Greetings"}
     let livello2 : [Parola] = parole.filter{$0.categoria == "Daily Life"}
     let livello3 : [Parola] = parole.filter{$0.categoria == "Romance"}
@@ -60,6 +59,7 @@ struct ArchiveView: View {
                     
                 case 1:
                     if (ourUser.dailyLifeUnlocked){
+                        
                     List (livello2) { parola in
                         NavigationLink(destination: DetailView(parol: parola)){
                             Text(parola.nome)
@@ -74,7 +74,6 @@ struct ArchiveView: View {
                             .multilineTextAlignment(.center)
                             .font(.title)
                             .navigationBarTitle("Archive")
-                            
                         Spacer()
                     }
                     
@@ -143,8 +142,8 @@ struct DetailView: View {
 }
 
 
-struct ArchiveView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArchiveView()
-    }
-}
+//struct ArchiveView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ArchiveView()
+//    }
+//}

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct circleShape: View {
+    @ObservedObject var ourUser : Utente
     var body: some View {
         Image ("\(ourUser.profilePic)")
             .resizable()
@@ -22,8 +23,8 @@ struct circleShape: View {
     }
 }
 
-struct circleShape_Previews: PreviewProvider {
-    static var previews: some View {
-        circleShape()
-    }
-}
+//struct circleShape_Previews: PreviewProvider {
+//    static var previews: some View {
+//        circleShape()
+//    }
+//}
