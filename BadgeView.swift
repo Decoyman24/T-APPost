@@ -19,7 +19,7 @@ struct BadgeView: View {
             Text(badgio)
                 .font(.system(size: 55))
                 .grayscale(greys)
-        }
+        }.frame(width:60, height:60)
     }
 }
 

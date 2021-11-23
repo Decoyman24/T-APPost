@@ -14,7 +14,6 @@ struct LoadingViewQuiz : View {
     var variabilleAppoggio_categoria_scelta : String
     
     @State var Quiz_del_livello_da_visualizzare = 0
-    
     @Binding var passaggio_view_appoggio : Bool   //variabile che prendo da IntroQuiz che mi serve per continuare con la navigazione nelle varie Quizscene
     @Binding var liv_sbloccato : Int 
     
@@ -121,7 +120,6 @@ struct QuizScene: View {
     //    @State private var activeAlert: ActiveAlert
     @State private var showAlert = false
     @State var alertAttiva : Bool = false
-       
     
     
     @Binding var quiz_liv_da_visualizzare : Int
@@ -141,22 +139,24 @@ struct QuizScene: View {
         VStack(spacing:10){
             Text("Quiz")
                 .font(.largeTitle)
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color(UIColor.systemBlue))
                 .fontWeight(.heavy)
                 .padding(5.0)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             ZStack{
                 RoundedRectangle(cornerRadius: 20)
-                    .frame(height: 400).foregroundColor(Color.gray)
+                    .frame(height: 400).foregroundColor(Color(UIColor.systemGray6))
+                    .padding(.horizontal)
                 
                 VStack{
                     Image("buttBack")
-                    Text(domande_da_usare.domanda).foregroundColor(Color.black)
-                    Text(domande_da_usare.question).foregroundColor(Color.black)
+                    Group{
+                        Text(domande_da_usare.domanda).fontWeight(.medium).foregroundColor(Color.black).padding(.horizontal, 15).multilineTextAlignment(.center)
+                        Text(domande_da_usare.question).italic().foregroundColor(Color.black).padding(.horizontal, 15)
+                    }.padding(.horizontal).multilineTextAlignment(.center)
                 }
-            }
-            Spacer()
+            }.padding(.horizontal, 15)
             
             //            provaiamo ada avere bottoniu con risposte mischiate
             Group{
@@ -187,6 +187,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Scugnizzo"
                                     ourUser.profilePic = "SCUGNIZZO"
+                                    ourUser.progress = 25
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Daily Life"){
@@ -194,6 +195,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Sarracino"
                                     ourUser.profilePic = "SARRACINO"
+                                    ourUser.progress = 50
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Romance") {
@@ -201,8 +203,13 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Cafone"
                                     ourUser.profilePic = "CAFONE"
+                                    ourUser.progress = 75
                                     self.torniamo_alla_dash = false
                                     
+                                } else if (domande_da_usare.categoria == "Danger Zone"){
+                                    LvSbloccato += 1
+                                    ourUser.progress = 100
+                                    self.torniamo_alla_dash = false
                                 }
                             }
                         }))
@@ -241,26 +248,35 @@ struct QuizScene: View {
                             else {
                                 if (domande_da_usare.categoria == "Greetings") {
                                     
-                                    ourUser.dailyLifeUnlocked = true
+                                    ourUser.greetingsUnlocked = true
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Scugnizzo"
                                     ourUser.profilePic = "SCUGNIZZO"
+                                    ourUser.progress = 25
+                                    badges[1].greyness = 0
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Daily Life"){
-                                    ourUser.romanceUnlocked = true
+                                    ourUser.dailyLifeUnlocked = true
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Sarracino"
                                     ourUser.profilePic = "SARRACINO"
+                                    ourUser.progress = 50
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Romance") {
-                                    ourUser.dangerZoneUnlocked = true
+                                    ourUser.romanceUnlocked = true
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Cafone"
                                     ourUser.profilePic = "CAFONE"
+                                    ourUser.progress = 75
                                     self.torniamo_alla_dash = false
                                     
+                                } else if (domande_da_usare.categoria == "Danger Zone"){
+                                    LvSbloccato += 1
+                                    ourUser.dangerZoneUnlocked = true
+                                    ourUser.progress = 100
+                                    self.torniamo_alla_dash = false
                                 }
                                 
                             }
@@ -304,6 +320,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Scugnizzo"
                                     ourUser.profilePic = "SCUGNIZZO"
+                                    ourUser.progress = 25
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Daily Life"){
@@ -311,6 +328,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Sarracino"
                                     ourUser.profilePic = "SARRACINO"
+                                    ourUser.progress = 50
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Romance") {
@@ -318,8 +336,13 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Cafone"
                                     ourUser.profilePic = "CAFONE"
+                                    ourUser.progress = 75
                                     self.torniamo_alla_dash = false
                                     
+                                } else if (domande_da_usare.categoria == "Danger Zone"){
+                                    LvSbloccato += 1
+                                    ourUser.progress = 100
+                                    self.torniamo_alla_dash = false
                                 }
                             }
                         }))
@@ -333,11 +356,12 @@ struct QuizScene: View {
                     }
                 }
                 
-            }.frame(maxWidth:320, maxHeight: 65, alignment: .center)
-                .background(.blue)
-                .cornerRadius(25)
-                .font(.title)
-                .foregroundColor(Color.white)
+            }.frame(maxWidth:220, maxHeight: 35, alignment: .center)
+                .padding(.vertical)
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(30)
+                .font(.title3)
+                .foregroundColor(Color(UIColor.systemBlue))
             
             
             //            Group{

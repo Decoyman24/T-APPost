@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Dashboard: View {
-    
+    var propic : String
     let columns = [
         GridItem(spacing: 150),
         GridItem(spacing: 150)]
@@ -20,9 +20,6 @@ struct Dashboard: View {
         GridItem(spacing: 90)
     ]
     
-    let achievements = [
-        "a","b","c","d","e","f"
-    ]
     
     var body: some View {
         
@@ -37,16 +34,24 @@ struct Dashboard: View {
             
             //            Spacer()
             
-            circleShape()
+//            circleShape()
  
+            Image (ourUser.profilePic)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
+                .clipShape(Circle())
+                .overlay {
+                    Circle().stroke(.blue, lineWidth: 2)
+                }
             
             Text("Your level is:")
                 .font(.title)
                 .fontWeight(.medium)
                 .padding(1)
             Text("\(ourUser.userTitle)").italic()
-            ProgressView(value: perc)
-            Text("\(ourUser.progress)%")
+//            ProgressView(value: perc)
+//            Text("\(ourUser.progress)%")
             ScrollView{
                 
                 //
@@ -96,9 +101,9 @@ struct Dashboard: View {
     }
 }
 
-struct Dash_Previews: PreviewProvider {
-    static var previews: some View {
-        Dashboard().preferredColorScheme(.light)
-    }
-}
+//struct Dash_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Dashboard().preferredColorScheme(.light)
+//    }
+//}
 

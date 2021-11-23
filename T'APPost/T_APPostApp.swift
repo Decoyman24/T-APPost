@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct T_APPostApp: App {
+
     var body: some Scene {
         WindowGroup {
             TabView{
@@ -19,7 +20,7 @@ struct T_APPostApp: App {
                     Label("Quiz", systemImage: "questionmark")
                 }
                 ArchiveView().tabItem{
-                    Label("Archive", systemImage: "books.vertical.circle")
+                    Label("Collection", systemImage: "books.vertical.circle")
                 }
             }
         }

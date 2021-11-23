@@ -22,8 +22,8 @@ struct circleShape: View {
     }
 }
 
-struct circleShape_Previews: PreviewProvider {
-    static var previews: some View {
-        circleShape()
-    }
-}
+//struct circleShape_Previews: PreviewProvider {
+//    static var previews: some View {
+//        circleShape()
+//    }
+//}
