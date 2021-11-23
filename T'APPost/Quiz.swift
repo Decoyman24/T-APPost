@@ -26,7 +26,7 @@ struct QuizButton : View {
                 .cornerRadius(60)
                 .foregroundColor(.white)
                 .shadow(color: Color(UIColor.systemBlue), radius: 5, x: 0, y: 0)
-                .frame(width: .infinity, height: 1, alignment: .bottom)
+                .frame(maxWidth: .infinity, alignment: .bottom)
         }
         
     }
