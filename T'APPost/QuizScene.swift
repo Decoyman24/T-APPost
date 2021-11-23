@@ -141,7 +141,7 @@ struct QuizScene: View {
                 .font(.largeTitle)
                 .foregroundColor(Color(UIColor.systemBlue))
                 .fontWeight(.heavy)
-                .padding(5.0)
+                .padding(20)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             ZStack{
@@ -150,7 +150,9 @@ struct QuizScene: View {
                     .padding(.horizontal)
                 
                 VStack{
-                    Image("buttBack")
+                    Text(domande_da_usare.emoji)
+                        .font(.system(size: 170))
+                        .fontWeight(.bold)
                     Group{
                         Text(domande_da_usare.domanda).fontWeight(.medium).foregroundColor(Color.black).padding(.horizontal, 15).multilineTextAlignment(.center)
                         Text(domande_da_usare.question).italic().foregroundColor(Color.black).padding(.horizontal, 15)
@@ -416,7 +418,7 @@ struct QuizScene: View {
             
             Spacer()
             
-            Text("\(quiz_liv_da_visualizzare + 1)").fontWeight(.thin)
+            Text("\(quiz_liv_da_visualizzare + 1)/6").fontWeight(.thin)
             
             Spacer()
         }

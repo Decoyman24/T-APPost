@@ -25,13 +25,15 @@ struct ArchiveView: View {
     let badge3 : [Badge] = badges.filter{$0.category == "Romance"}
     let badge4 : [Badge] = badges.filter{$0.category == "Danger Zone"}
     
+    
+    
 
     var body: some View {
         //NavigationView che usa i nomi delle parole della lista come link, per poi rimandarti a DetailView (passa come parametro l'intera parola compresa di nome, descrizione e proprietà)
         NavigationView{
             VStack(spacing: 20){
                 Text("Words and Badges")
-                    .font(.title)
+                    .font(.callout)
                     .foregroundColor(Color.blue)
                     .fontWeight(.regular)
                     .padding(5.0)
