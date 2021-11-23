@@ -14,7 +14,6 @@ struct LoadingViewQuiz : View {
     var variabilleAppoggio_categoria_scelta : String
     
     @State var Quiz_del_livello_da_visualizzare = 0
-    
     @Binding var passaggio_view_appoggio : Bool   //variabile che prendo da IntroQuiz che mi serve per continuare con la navigazione nelle varie Quizscene
     @Binding var liv_sbloccato : Int 
     
@@ -121,7 +120,6 @@ struct QuizScene: View {
     //    @State private var activeAlert: ActiveAlert
     @State private var showAlert = false
     @State var alertAttiva : Bool = false
-       
     
     
     @Binding var quiz_liv_da_visualizzare : Int
@@ -248,15 +246,16 @@ struct QuizScene: View {
                             else {
                                 if (domande_da_usare.categoria == "Greetings") {
                                     
-                                    ourUser.dailyLifeUnlocked = true
+                                    ourUser.greetingsUnlocked = true
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Scugnizzo"
                                     ourUser.profilePic = "SCUGNIZZO"
                                     ourUser.progress = 25
+                                    badges[1].greyness = 0
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Daily Life"){
-                                    ourUser.romanceUnlocked = true
+                                    ourUser.dailyLifeUnlocked = true
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Sarracino"
                                     ourUser.profilePic = "SARRACINO"
@@ -264,7 +263,7 @@ struct QuizScene: View {
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Romance") {
-                                    ourUser.dangerZoneUnlocked = true
+                                    ourUser.romanceUnlocked = true
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Cafone"
                                     ourUser.profilePic = "CAFONE"
@@ -273,6 +272,7 @@ struct QuizScene: View {
                                     
                                 } else if (domande_da_usare.categoria == "Danger Zone"){
                                     LvSbloccato += 1
+                                    ourUser.dangerZoneUnlocked = true
                                     ourUser.progress = 100
                                     self.torniamo_alla_dash = false
                                 }

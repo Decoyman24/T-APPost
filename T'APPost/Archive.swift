@@ -11,61 +11,92 @@ import AVFoundation
 
 
 struct ArchiveView: View {
-    
+    let rows = [
+        GridItem(spacing: 90),
+        GridItem(spacing: 90)
+    ]
     @State var selezionato = 0
-    
     let livello1 : [Parola] = parole.filter{$0.categoria == "Greetings"}
     let livello2 : [Parola] = parole.filter{$0.categoria == "Daily Life"}
     let livello3 : [Parola] = parole.filter{$0.categoria == "Romance"}
     let livello4 : [Parola] = parole.filter{$0.categoria == "Danger Zone"}
+    let badge1 : [Badge] = badges.filter{$0.category == "Greetings"}
+    let badge2 : [Badge] = badges.filter{$0.category == "Daily Life"}
+    let badge3 : [Badge] = badges.filter{$0.category == "Romance"}
+    let badge4 : [Badge] = badges.filter{$0.category == "Danger Zone"}
     
+
     var body: some View {
         //NavigationView che usa i nomi delle parole della lista come link, per poi rimandarti a DetailView (passa come parametro l'intera parola compresa di nome, descrizione e proprietà)
-        
-        
         NavigationView{
-            VStack{
-                
+            VStack(spacing: 20){
+                Text("Words and Badges")
+                    .font(.title)
+                    .foregroundColor(Color.blue)
+                    .fontWeight(.regular)
+                    .padding(5.0)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Picker(selection: $selezionato, label: Text("segmented bar")) {
                     Text("Greetings").tag(0)
                     Text("Daily Life").tag(1)
                     Text("Romance").tag(2)
                     Text("Danger Zone").tag(3)
-                }
-                .pickerStyle(.segmented)
+                }.pickerStyle(.segmented)
                 
                 
-                switch selezionato {
-                    
+                switch selezionato{
                 case 0 :
                     if (ourUser.greetingsUnlocked){
-                    List (livello1) { parola in
-                        NavigationLink(destination: DetailView(parol: parola)){
-                            Text(parola.nome)
-                                .fontWeight(.medium)
-                        }.navigationBarTitle("Collection")
+                        VStack(){
+//                        Divider()
+//                            ZStack{
+                                Text("Congratulations, you completed the Greetings quiz!")
+                                    .foregroundColor(.blue)
+                                    .multilineTextAlignment(.center)
+                                BadgeView(badgio: badges[0].icon, greys: badges[0].greyness)
+//                                Text("Here's the words you used in the quiz:")
+//                                    .foregroundColor(.blue)
+//                                    .multilineTextAlignment(.center)
+//                                    .offset(x: 0, y: 60)
+//                            Spacer()
+//                        }
                         }
+                        List (livello1) { parola in
+                            NavigationLink(destination: DetailView(parol: parola)){
+                                Text(parola.nome)
+                                    .fontWeight(.medium)
+                            }.navigationBarTitle("Collection")
+                        }
+
                     }
-                        else {
-                            Spacer()
-                            Text("You haven't completed the Greetings quiz yet!")
-                                .padding([.horizontal, .vertical])
-                                .multilineTextAlignment(.center)
-                                .font(.title)
-                                .navigationBarTitle("Collection")
-                                
-                            Spacer()
-                        }
+                    else {
+                        Spacer()
+                        Text("You haven't completed the Greetings quiz yet!")
+                            .padding([.horizontal, .vertical])
+                            .multilineTextAlignment(.center)
+                            .font(.title)
+                            .navigationBarTitle("Collection")
+                        
+                        Spacer()
+                    }
                     
                     
                 case 1:
                     if (ourUser.dailyLifeUnlocked){
-                    List (livello2) { parola in
-                        NavigationLink(destination: DetailView(parol: parola)){
-                            Text(parola.nome)
-                                .fontWeight(.medium)
-                        }.navigationBarTitle("Collection")
-                    }
+                        
+                            VStack{
+                                Text("Congratulations, you completed the Daily Life quiz!")
+                                    .foregroundColor(.blue)
+                                    .multilineTextAlignment(.center)
+                                BadgeView(badgio: badges[1].icon, greys: badges[1].greyness)
+                            }
+                        
+                        List (livello2) { parola in
+                            NavigationLink(destination: DetailView(parol: parola)){
+                                Text(parola.nome)
+                                    .fontWeight(.medium)
+                            }.navigationBarTitle("Archive")
+                        }
                     }
                     else {
                         Spacer()
@@ -74,18 +105,25 @@ struct ArchiveView: View {
                             .multilineTextAlignment(.center)
                             .font(.title)
                             .navigationBarTitle("Collection")
-                            
+                        
                         Spacer()
                     }
                     
                 case 2:
                     if (ourUser.romanceUnlocked){
-                    List (livello3) { parola in
-                        NavigationLink(destination: DetailView(parol: parola)){
-                            Text(parola.nome)
-                                .fontWeight(.medium)
-                        }.navigationBarTitle("Collection")
-                    }
+                        
+                            VStack{
+                                Text("Congratulations, you completed the Romance quiz!")
+                                    .foregroundColor(.blue)
+                                    .multilineTextAlignment(.center)
+                                BadgeView(badgio: badges[2].icon, greys: badges[2].greyness)
+                            }
+                        List (livello3) { parola in
+                            NavigationLink(destination: DetailView(parol: parola)){
+                                Text(parola.nome)
+                                    .fontWeight(.medium)
+                            }.navigationBarTitle("Collection")
+                        }
                     }
                     else {
                         Spacer()
@@ -94,18 +132,25 @@ struct ArchiveView: View {
                             .multilineTextAlignment(.center)
                             .font(.title)
                             .navigationBarTitle("Collection")
-                            
+                        
                         Spacer()
                     }
                     
                 default:
                     if (ourUser.dangerZoneUnlocked){
-                    List (livello4) { parola in
-                        NavigationLink(destination: DetailView(parol: parola)){
-                            Text(parola.nome)
-                                .fontWeight(.medium)
-                        }.navigationBarTitle("Collection")
-                    }
+                        
+                            VStack{
+                                Text("Congratulations, you completed the Danger Zone quiz!")
+                                    .foregroundColor(.blue)
+                                    .multilineTextAlignment(.center)
+                                BadgeView(badgio: badges[3].icon, greys: badges[3].greyness)
+                            }
+                        List (livello4) { parola in
+                            NavigationLink(destination: DetailView(parol: parola)){
+                                Text(parola.nome)
+                                    .fontWeight(.medium)
+                            }.navigationBarTitle("Collection")
+                        }
                     }
                     else {
                         Spacer()
@@ -114,13 +159,12 @@ struct ArchiveView: View {
                             .multilineTextAlignment(.center)
                             .font(.title)
                             .navigationBarTitle("Collection")
-                            
+                        
                         Spacer()
                     }
                 }
             }
         }.padding()
-        
     }
 }
 
