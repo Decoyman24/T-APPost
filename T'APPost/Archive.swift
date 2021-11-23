@@ -11,8 +11,9 @@ import AVFoundation
 
 
 struct ArchiveView: View {
+    
     @State var selezionato = 0
-    @ObservedObject var ourUser : Utente
+    
     let livello1 : [Parola] = parole.filter{$0.categoria == "Greetings"}
     let livello2 : [Parola] = parole.filter{$0.categoria == "Daily Life"}
     let livello3 : [Parola] = parole.filter{$0.categoria == "Romance"}

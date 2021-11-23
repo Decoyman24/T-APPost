@@ -35,7 +35,9 @@ struct Dashboard: View {
             
             //            Spacer()
             
-            circleShape(ourUser: ourUser)
+            circleShape()
+ 
+            
             Text("Your level is:")
                 .font(.title)
                 .fontWeight(.medium)
