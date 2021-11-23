@@ -75,7 +75,6 @@ struct QuizDash: View{
                 
                 Text("\(ourUser.progress)%")
 //                Divider()
-                Spacer()
                 
                 VStack(spacing:10){
                     Group {
@@ -122,7 +121,7 @@ struct QuizDash: View{
                         
                     }
                     
-                    .padding(15).scenePadding(.vertical)
+                    .padding(10).scenePadding(.vertical)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .background(Color(UIColor.systemBlue))
                     .cornerRadius(30)
