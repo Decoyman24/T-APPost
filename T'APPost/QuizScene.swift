@@ -186,7 +186,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Scugnizzo"
                                     ourUser.profilePic = "SCUGNIZZO"
-                                    badges[1].greyness = 0.0
+                                    ourUser.progress = 25
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Daily Life"){
@@ -194,6 +194,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Sarracino"
                                     ourUser.profilePic = "SARRACINO"
+                                    ourUser.progress = 50
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Romance") {
@@ -201,8 +202,13 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Cafone"
                                     ourUser.profilePic = "CAFONE"
+                                    ourUser.progress = 75
                                     self.torniamo_alla_dash = false
                                     
+                                } else if (domande_da_usare.categoria == "Danger Zone"){
+                                    LvSbloccato += 1
+                                    ourUser.progress = 100
+                                    self.torniamo_alla_dash = false
                                 }
                             }
                         }))
@@ -245,6 +251,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Scugnizzo"
                                     ourUser.profilePic = "SCUGNIZZO"
+                                    ourUser.progress = 25
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Daily Life"){
@@ -252,6 +259,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Sarracino"
                                     ourUser.profilePic = "SARRACINO"
+                                    ourUser.progress = 50
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Romance") {
@@ -259,8 +267,13 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Cafone"
                                     ourUser.profilePic = "CAFONE"
+                                    ourUser.progress = 75
                                     self.torniamo_alla_dash = false
                                     
+                                } else if (domande_da_usare.categoria == "Danger Zone"){
+                                    LvSbloccato += 1
+                                    ourUser.progress = 100
+                                    self.torniamo_alla_dash = false
                                 }
                                 
                             }
@@ -304,6 +317,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Scugnizzo"
                                     ourUser.profilePic = "SCUGNIZZO"
+                                    ourUser.progress = 25
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Daily Life"){
@@ -311,6 +325,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Sarracino"
                                     ourUser.profilePic = "SARRACINO"
+                                    ourUser.progress = 50
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Romance") {
@@ -318,8 +333,13 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Cafone"
                                     ourUser.profilePic = "CAFONE"
+                                    ourUser.progress = 75
                                     self.torniamo_alla_dash = false
                                     
+                                } else if (domande_da_usare.categoria == "Danger Zone"){
+                                    LvSbloccato += 1
+                                    ourUser.progress = 100
+                                    self.torniamo_alla_dash = false
                                 }
                             }
                         }))

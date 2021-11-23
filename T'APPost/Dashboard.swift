@@ -22,16 +22,21 @@ struct Dashboard: View {
     
     
     var body: some View {
+        
         VStack{
+            
             Text("Dashboard")
                 .font(.largeTitle)
                 .foregroundColor(Color.blue)
                 .fontWeight(.heavy)
                 .padding(5.0)
             
+            
             //            Spacer()
             
-            Image (propic)
+//            circleShape()
+ 
+            Image (ourUser.profilePic)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)
@@ -39,16 +44,14 @@ struct Dashboard: View {
                 .overlay {
                     Circle().stroke(.blue, lineWidth: 2)
                 }
- 
             
             Text("Your level is:")
                 .font(.title)
                 .fontWeight(.medium)
                 .padding(1)
-            
             Text("\(ourUser.userTitle)").italic()
-            ProgressView(value: perc)
-            Text("\(ourUser.progress)%")
+//            ProgressView(value: perc)
+//            Text("\(ourUser.progress)%")
             ScrollView{
                 
                 //
@@ -98,9 +101,9 @@ struct Dashboard: View {
     }
 }
 
-//struct Dash_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Dashboard().preferredColorScheme(.light)
-//    }
-//}
+struct Dash_Previews: PreviewProvider {
+    static var previews: some View {
+        Dashboard().preferredColorScheme(.light)
+    }
+}
 
