@@ -21,7 +21,7 @@ struct QuizButton : View {
                 .fontWeight(.regular)
                 .font(.system(size: 22))
                 .padding(.horizontal, 50)
-                .padding(.vertical,15)
+                .padding(.vertical, 15)
                 .background(Color(UIColor.systemBlue))
                 .cornerRadius(60)
                 .foregroundColor(.white)
@@ -52,10 +52,10 @@ struct QuizDash: View{
     var body: some View{
        
         NavigationView{
-            VStack(){
+            VStack(spacing:10){
                 Text("Quiz")
                     .font(.largeTitle)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color(UIColor.systemBlue))
                     .fontWeight(.heavy)
                 Spacer()
 //                circleShape()
@@ -69,7 +69,7 @@ struct QuizDash: View{
                         Circle().stroke(.blue, lineWidth: 2)
                     }
                 
-                Text("Your level: \(ourUser.userTitle)").italic()
+                Text("\(ourUser.userTitle)").italic()
                 
                 ProgressView(value: Double(ourUser.progress)/100.0)
                 

@@ -148,7 +148,7 @@ struct QuizScene: View {
             Spacer()
             ZStack{
                 RoundedRectangle(cornerRadius: 20)
-                    .frame(height: 400).foregroundColor(Color.gray)
+                    .frame(height: 400).foregroundColor(Color(UIColor.systemGray6))
                 
                 VStack{
                     Image("buttBack")
@@ -354,11 +354,12 @@ struct QuizScene: View {
                     }
                 }
                 
-            }.frame(maxWidth:320, maxHeight: 65, alignment: .center)
-                .background(.blue)
-                .cornerRadius(25)
-                .font(.title)
-                .foregroundColor(Color.white)
+            }.frame(maxWidth:220, maxHeight: 30, alignment: .center)
+                .padding(.vertical)
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(30)
+                .font(.title3)
+                .foregroundColor(Color(UIColor.systemBlue))
             
             
             //            Group{
