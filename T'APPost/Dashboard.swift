@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Dashboard: View {
-    
+    var propic : String
     let columns = [
         GridItem(spacing: 150),
         GridItem(spacing: 150)]
@@ -20,9 +20,6 @@ struct Dashboard: View {
         GridItem(spacing: 90)
     ]
     
-    let achievements = [
-        "a","b","c","d","e","f"
-    ]
     
     var body: some View {
         
@@ -104,9 +101,9 @@ struct Dashboard: View {
     }
 }
 
-struct Dash_Previews: PreviewProvider {
-    static var previews: some View {
-        Dashboard().preferredColorScheme(.light)
-    }
-}
+//struct Dash_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Dashboard().preferredColorScheme(.light)
+//    }
+//}
 
