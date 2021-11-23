@@ -40,7 +40,6 @@ struct QuizButton : View {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 struct QuizDash: View{
-    @ObservedObject var ourUser : Utente
     var categories = ["Greetings", "Daily Life", "Romance", "Danger Zone"]
     
     @State var isActive : Bool = false
@@ -60,7 +59,15 @@ struct QuizDash: View{
                     .foregroundColor(Color.blue)
                     .fontWeight(.heavy)
                 Spacer()
-                circleShape(ourUser: ourUser)
+                
+                Image (ourUser.profilePic)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150, height: 150)
+                    .clipShape(Circle())
+                    .overlay {
+                        Circle().stroke(.blue, lineWidth: 2)
+                    }
                 
                 Text("Your level: \(ourUser.userTitle)").italic()
                 

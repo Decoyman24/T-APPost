@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Dashboard: View {
-    @ObservedObject var ourUser : Utente
+    var propic : String
     let columns = [
         GridItem(spacing: 150),
         GridItem(spacing: 150)]
@@ -20,12 +20,8 @@ struct Dashboard: View {
         GridItem(spacing: 90)
     ]
     
-    let achievements = [
-        "a","b","c","d","e","f"
-    ]
     
     var body: some View {
-        var perc : Double = Double(ourUser.progress)/100.0
         VStack{
             Text("Dashboard")
                 .font(.largeTitle)
@@ -35,7 +31,14 @@ struct Dashboard: View {
             
             //            Spacer()
             
-            circleShape()
+            Image (propic)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
+                .clipShape(Circle())
+                .overlay {
+                    Circle().stroke(.blue, lineWidth: 2)
+                }
  
             
             Text("Your level is:")

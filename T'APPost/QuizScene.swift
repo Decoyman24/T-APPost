@@ -121,7 +121,6 @@ struct QuizScene: View {
     //    @State private var activeAlert: ActiveAlert
     @State private var showAlert = false
     @State var alertAttiva : Bool = false
-       
     
     
     @Binding var quiz_liv_da_visualizzare : Int
@@ -187,6 +186,7 @@ struct QuizScene: View {
                                     LvSbloccato += 1
                                     ourUser.userTitle = "Scugnizzo"
                                     ourUser.profilePic = "SCUGNIZZO"
+                                    badges[1].greyness = 0.0
                                     self.torniamo_alla_dash = false
                                     
                                 } else if (domande_da_usare.categoria == "Daily Life"){
