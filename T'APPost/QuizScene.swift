@@ -179,7 +179,7 @@ struct QuizScene: View {
                 .alert(isPresented: $showAlert) {
                     //                    switch activeAlert {
                     if (alertAttiva) {
-                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. Try to use it in everyday  life!"),   dismissButton: .default(Text("Next"), action: {
+                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. It will be useful in your life in Naples!"),   dismissButton: .default(Text("Next"), action: {
                             if (quiz_liv_da_visualizzare < 5){  //fatto così per ora per avere il codice funzionanate ma se riuscite in modo più pulito cambiate
                                 quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande  (da 6 paroole) questa variabile fa da conteggio
                             else {
@@ -210,6 +210,8 @@ struct QuizScene: View {
                                     
                                 } else if (domande_da_usare.categoria == "Danger Zone"){
                                     LvSbloccato += 1
+                                    ourUser.userTitle = "Zingarone"
+                                    ourUser.profilePic = "ZINGARONE"
                                     ourUser.progress = 100
                                     self.torniamo_alla_dash = false
                                 }
@@ -218,8 +220,8 @@ struct QuizScene: View {
                     } else {
                         //                               case .sbagliata:
                         return Alert(
-                            title: Text("Wrong"),
-                            message: Text("Looks like you need to check the words and their meaning again"),
+                            title: Text("Wrong."),
+                            message: Text("Looks like you need to check the words and their meaning again."),
                             dismissButton: .default(Text("Try again"))
                         )
                     }
@@ -244,7 +246,7 @@ struct QuizScene: View {
                 .alert(isPresented: $showAlert) {
                     //                    switch activeAlert {
                     if (alertAttiva) {
-                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. Try to use it in everyday  life!"),   dismissButton: .default(Text("Next"), action: {
+                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. It will be useful in your life in Naples!"),   dismissButton: .default(Text("Next"), action: {
                             if (quiz_liv_da_visualizzare < 5){  //fatto così per ora per avere il codice funzionanate ma se riuscite in modo più pulito cambiate
                                 quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande  (da 6 paroole) questa variabile fa da conteggio
                             else {
@@ -286,8 +288,8 @@ struct QuizScene: View {
                     } else {
                         //                               case .sbagliata:
                         return Alert(
-                            title: Text("Wrong"),
-                            message: Text("Looks like you need to check the words and their meaning again"),
+                            title: Text("Wrong."),
+                            message: Text("Looks like you need to check the words and their meaning again."),
                             dismissButton: .default(Text("Try again"))
                         )
                     }
@@ -312,7 +314,7 @@ struct QuizScene: View {
                 .alert(isPresented: $showAlert) {
                     //                    switch activeAlert {
                     if (alertAttiva) {
-                        return Alert(title: Text("Well DOne!"), message: Text("You know how to use this word. Try to use it in everyday  life!"),   dismissButton: .default(Text("Next"), action: {
+                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. Use it at your discretion!"),   dismissButton: .default(Text("Next"), action: {
                             if (quiz_liv_da_visualizzare < 5){  //fatto così per ora per avere il codice funzionanate ma se riuscite in modo più pulito cambiate
                                 quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande  (da 6 paroole) questa variabile fa da conteggio
                             else {
@@ -351,14 +353,14 @@ struct QuizScene: View {
                     } else {
                         //                               case .sbagliata:
                         return Alert(
-                            title: Text("Wrong"),
+                            title: Text("Wrong."),
                             message: Text("Looks like you need to check the words and their meaning again"),
                             dismissButton: .default(Text("Try again"))
                         )
                     }
                 }
                 
-            }.frame(maxWidth:220, maxHeight: 35, alignment: .center)
+            }.frame(maxWidth:300, maxHeight: 35, alignment: .center)
                 .padding(.vertical)
                 .background(Color(UIColor.systemGray6))
                 .cornerRadius(30)

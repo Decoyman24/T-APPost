@@ -167,7 +167,7 @@ struct Intro_Quiz: View {
                         
                     }.frame()
                         
-                }.navigationTitle("\(categoriaScelta) quiz").padding(.horizontal).font(.title)
+                }.navigationTitle("\(categoriaScelta)").padding(.horizontal).font(.title)
                 
             }
             //                questa view chiamata loading mi permette poi di switchare le views in base al quiz che voglio fare per ogni livello in base alla categoria che mi viene passata
