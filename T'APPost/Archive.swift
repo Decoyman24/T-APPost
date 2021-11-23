@@ -64,7 +64,7 @@ struct ArchiveView: View {
                         NavigationLink(destination: DetailView(parol: parola)){
                             Text(parola.nome)
                                 .fontWeight(.medium)
-                        }.navigationBarTitle("Archive")
+                        }.navigationBarTitle("Collection")
                     }
                     }
                     else {
