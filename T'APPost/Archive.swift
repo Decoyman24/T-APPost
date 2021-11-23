@@ -69,7 +69,7 @@ struct ArchiveView: View {
                     }
                     else {
                         Spacer()
-                        Text("You haven't completed the Daily Life quiz yet!")
+                        Text("You haven't completed the \nDaily Life quiz yet!")
                             .padding([.horizontal, .vertical])
                             .multilineTextAlignment(.center)
                             .font(.title)
@@ -89,7 +89,7 @@ struct ArchiveView: View {
                     }
                     else {
                         Spacer()
-                        Text("You haven't completed the Romance quiz yet!")
+                        Text("You haven't completed the \nRomance quiz yet!")
                             .padding([.horizontal, .vertical])
                             .multilineTextAlignment(.center)
                             .font(.title)
@@ -109,7 +109,7 @@ struct ArchiveView: View {
                     }
                     else {
                         Spacer()
-                        Text("You haven't completed the Danger Zone quiz yet!")
+                        Text("You haven't completed \nthe Danger Zone quiz yet!")
                             .padding([.horizontal, .vertical])
                             .multilineTextAlignment(.center)
                             .font(.title)
@@ -129,7 +129,7 @@ struct DetailView: View {
     let parol : Parola //la parola con tutti i suoi parametri che abbiamo preso dalla NavigationView
     
     var body: some View {
-        VStack{
+        VStack(spacing: 20){
             Spacer()
             Text (parol.nome)
                 .font(.title2.bold().italic())
@@ -138,6 +138,7 @@ struct DetailView: View {
             Spacer()
             Spacer()
         }
+        .padding(20)
         .navigationBarTitle(Text(parol.categoria), displayMode: .inline)
     }
 }

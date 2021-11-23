@@ -18,18 +18,15 @@ struct QuizButton : View {
         VStack (alignment: .center, spacing: 10){
             Text("Take the Quiz")
             
-                .fontWeight(.bold)
+                .fontWeight(.regular)
                 .font(.system(size: 22))
-                .padding()
-                .background(Color.blue)
-                .cornerRadius(40)
+                .padding(.horizontal, 50)
+                .padding(.vertical,15)
+                .background(Color(UIColor.systemBlue))
+                .cornerRadius(60)
                 .foregroundColor(.white)
-                .padding(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 40)
-                        .stroke(Color.blue, lineWidth: 5)
-                )
-                .frame(alignment: .bottom)
+                .shadow(color: Color(UIColor.systemBlue), radius: 5, x: 0, y: 0)
+                .frame(width: .infinity, height: 1, alignment: .bottom)
         }
         
     }
