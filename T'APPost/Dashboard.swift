@@ -37,16 +37,24 @@ struct Dashboard: View {
             
             //            Spacer()
             
-            circleShape()
+//            circleShape()
  
+            Image (ourUser.profilePic)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
+                .clipShape(Circle())
+                .overlay {
+                    Circle().stroke(.blue, lineWidth: 2)
+                }
             
             Text("Your level is:")
                 .font(.title)
                 .fontWeight(.medium)
                 .padding(1)
             Text("\(ourUser.userTitle)").italic()
-            ProgressView(value: perc)
-            Text("\(ourUser.progress)%")
+//            ProgressView(value: perc)
+//            Text("\(ourUser.progress)%")
             ScrollView{
                 
                 //

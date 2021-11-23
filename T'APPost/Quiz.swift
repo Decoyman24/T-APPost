@@ -50,8 +50,10 @@ struct QuizDash: View{
     
     
     @State var livello_sbloccato : Int = 0
+
     
     var body: some View{
+       
         NavigationView{
             VStack(){
                 Text("Quiz")
@@ -59,11 +61,23 @@ struct QuizDash: View{
                     .foregroundColor(Color.blue)
                     .fontWeight(.heavy)
                 Spacer()
-                circleShape()
+//                circleShape()
+                
+                Image (ourUser.profilePic)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150, height: 150)
+                    .clipShape(Circle())
+                    .overlay {
+                        Circle().stroke(.blue, lineWidth: 2)
+                    }
                 
                 Text("Your level: \(ourUser.userTitle)").italic()
                 
-                Divider()
+                ProgressView(value: Double(ourUser.progress)/100.0)
+                
+                Text("\(ourUser.progress)%")
+//                Divider()
                 Spacer()
                 
                 VStack(spacing:10){
@@ -73,19 +87,7 @@ struct QuizDash: View{
                         }
                         .isDetailLink(false)
                         
-//                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1], rootIsActive: self.$isActive1), isActive: self.$isActive1) {
-//                            ButtonView(livello: categories[1])
-//                        }
-//                        .isDetailLink(false)
-//                        .disabled(ourUser.dailyLifeUnlocked == false)
-//
-//
-                        
-                        
-//                        prova nuova idea
-  
-                        
-                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1], rootIsActive: self.$isActive1, livelloSbloccato: $livello_sbloccato), isActive: self.$isActive1) {
+                    NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1], rootIsActive: self.$isActive1, livelloSbloccato: $livello_sbloccato), isActive: self.$isActive1) {
                             ButtonView(livello: categories[1])
                         }
                         .isDetailLink(false)
@@ -123,7 +125,7 @@ struct QuizDash: View{
                         
                     }
                     
-                    .padding(20).scenePadding(.vertical)
+                    .padding(15).scenePadding(.vertical)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .background(Color(UIColor.systemBlue))
                     .cornerRadius(30)

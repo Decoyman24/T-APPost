@@ -43,7 +43,7 @@ struct ArchiveView: View {
                         NavigationLink(destination: DetailView(parol: parola)){
                             Text(parola.nome)
                                 .fontWeight(.medium)
-                        }.navigationBarTitle("Archive")
+                        }.navigationBarTitle("Collection")
                         }
                     }
                         else {
@@ -52,7 +52,7 @@ struct ArchiveView: View {
                                 .padding([.horizontal, .vertical])
                                 .multilineTextAlignment(.center)
                                 .font(.title)
-                                .navigationBarTitle("Archive")
+                                .navigationBarTitle("Collection")
                                 
                             Spacer()
                         }
@@ -73,7 +73,7 @@ struct ArchiveView: View {
                             .padding([.horizontal, .vertical])
                             .multilineTextAlignment(.center)
                             .font(.title)
-                            .navigationBarTitle("Archive")
+                            .navigationBarTitle("Collection")
                             
                         Spacer()
                     }
@@ -84,7 +84,7 @@ struct ArchiveView: View {
                         NavigationLink(destination: DetailView(parol: parola)){
                             Text(parola.nome)
                                 .fontWeight(.medium)
-                        }.navigationBarTitle("Archive")
+                        }.navigationBarTitle("Collection")
                     }
                     }
                     else {
@@ -93,7 +93,7 @@ struct ArchiveView: View {
                             .padding([.horizontal, .vertical])
                             .multilineTextAlignment(.center)
                             .font(.title)
-                            .navigationBarTitle("Archive")
+                            .navigationBarTitle("Collection")
                             
                         Spacer()
                     }
@@ -104,7 +104,7 @@ struct ArchiveView: View {
                         NavigationLink(destination: DetailView(parol: parola)){
                             Text(parola.nome)
                                 .fontWeight(.medium)
-                        }.navigationBarTitle("Archive")
+                        }.navigationBarTitle("Collection")
                     }
                     }
                     else {
@@ -113,7 +113,7 @@ struct ArchiveView: View {
                             .padding([.horizontal, .vertical])
                             .multilineTextAlignment(.center)
                             .font(.title)
-                            .navigationBarTitle("Archive")
+                            .navigationBarTitle("Collection")
                             
                         Spacer()
                     }
