@@ -38,6 +38,8 @@ struct Dashboard: View {
             //            Spacer()
             
             circleShape()
+ 
+            
             Text("Your level is:")
                 .font(.title)
                 .fontWeight(.medium)

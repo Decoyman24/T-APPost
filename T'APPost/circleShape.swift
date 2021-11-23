@@ -10,7 +10,7 @@ import SwiftUI
 
 struct circleShape: View {
     var body: some View {
-        Image ("\(ourUser.profilePic)")
+        Image (ourUser.profilePic)
             .resizable()
             .scaledToFit()
             .frame(width: 150, height: 150)
