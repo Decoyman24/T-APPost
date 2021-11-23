@@ -18,7 +18,7 @@ struct CardView : View {
         
         ZStack{
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Color.gray)
+                .fill(Color(UIColor.systemGray6))
             
             VStack (alignment: .leading, spacing: 10){
                 Text(parola.nome)

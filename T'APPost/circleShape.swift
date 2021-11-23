@@ -10,8 +10,9 @@ import SwiftUI
 
 struct circleShape: View {
     var body: some View {
-        Image ("\(ourUser.userTitle)")
+        Image (ourUser.profilePic)
             .resizable()
+            .scaledToFit()
             .frame(width: 150, height: 150)
             .clipShape(Circle())
             .overlay {
