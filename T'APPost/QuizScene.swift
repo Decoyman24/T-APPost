@@ -150,7 +150,7 @@ struct QuizScene: View {
                     .padding(.horizontal)
                 
                 VStack{
-                    Image("buttBack")
+                    Text(domande_da_usare.img)
                     Group{
                         Text(domande_da_usare.domanda).fontWeight(.medium).foregroundColor(Color.black).padding(.horizontal, 15).multilineTextAlignment(.center)
                         Text(domande_da_usare.question).italic().foregroundColor(Color.black).padding(.horizontal, 15)
