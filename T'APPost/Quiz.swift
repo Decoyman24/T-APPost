@@ -27,6 +27,7 @@ struct QuizButton : View {
                 .foregroundColor(.white)
                 .shadow(color: Color(UIColor.systemBlue), radius: 5, x: 0, y: 0)
                 .frame(maxWidth: .infinity, alignment: .bottom)
+            
         }
         
     }
@@ -88,6 +89,7 @@ struct QuizDash: View{
                         }
                         .isDetailLink(false)
                         .disabled(livello_sbloccato < 1)
+                       
                         
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2], rootIsActive: self.$isActive2, livelloSbloccato: $livello_sbloccato), isActive: self.$isActive2) {
                             ButtonView(livello: categories[2])
@@ -152,16 +154,19 @@ struct Intro_Quiz: View {
         let filtrato : [Parola] = parole.filter{$0.categoria == categoriaScelta}
         ZStack{
             VStack{
-                Text("Here's some phrases and words you're going to need in order to solve this quiz. Take your time reading and understanding them.").padding(.horizontal)
+                Text("Here's some phrases and words you're going to need.").padding(.horizontal)
+                    .font(.subheadline)
                 ZStack{
                 ScrollView(.vertical){
                     VStack(alignment: .center, spacing: 10){
                        
                         ForEach (filtrato) { parolina in
                             CardView(parola: parolina)
+                                
                         }
                         
-                    }.frame(maxHeight: .infinity)
+                    }.frame()
+                        
                 }.navigationTitle("\(categoriaScelta) quiz").padding(.horizontal).font(.title)
                 
             }
