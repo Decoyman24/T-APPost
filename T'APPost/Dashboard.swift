@@ -101,9 +101,9 @@ struct Dashboard: View {
     }
 }
 
-struct Dash_Previews: PreviewProvider {
-    static var previews: some View {
-        Dashboard().preferredColorScheme(.light)
-    }
-}
+//struct Dash_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Dashboard().preferredColorScheme(.light)
+//    }
+//}
 
