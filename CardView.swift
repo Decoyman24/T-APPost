@@ -19,24 +19,35 @@ struct CardView : View {
         ZStack{
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(Color(UIColor.systemGray6))
+           
+                
             
             VStack (alignment: .leading, spacing: 10){
-                Text(parola.nome)
+                
+                Label("\(parola.nome)", systemImage: "")
                     .padding(10)
                     .font(.title2.bold().italic())
                     .foregroundColor(.black)
                 
                 //                Spacer()
-                Text(parola.descrizione)
+                Label("\(parola.descrizione)", systemImage: "")
                     .padding(10)
                     .multilineTextAlignment(.leading)
                     .font(.body)
+                    
+                
+                Text(parola.esempio)
+                    .padding(10)
+                    .multilineTextAlignment(.leading)
+                    .font(.body.italic())
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Spacer()
             }
             //            .layoutPriority(100)
-        }
-        .padding([.top, .horizontal, .leading, .trailing])
+        }.padding([.top, .horizontal, .leading, .trailing])
+            
+        
     }
 }
 

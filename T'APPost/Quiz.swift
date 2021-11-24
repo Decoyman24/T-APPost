@@ -21,12 +21,13 @@ struct QuizButton : View {
                 .fontWeight(.regular)
                 .font(.system(size: 22))
                 .padding(.horizontal, 50)
-                .padding(.vertical,15)
+                .padding(.vertical, 15)
                 .background(Color(UIColor.systemBlue))
                 .cornerRadius(60)
                 .foregroundColor(.white)
                 .shadow(color: Color(UIColor.systemBlue), radius: 5, x: 0, y: 0)
                 .frame(maxWidth: .infinity, alignment: .bottom)
+            
         }
         
     }
@@ -52,10 +53,10 @@ struct QuizDash: View{
     var body: some View{
        
         NavigationView{
-            VStack(){
+            VStack(spacing:10){
                 Text("Quiz")
                     .font(.largeTitle)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color(UIColor.systemBlue))
                     .fontWeight(.heavy)
                 Spacer()
 //                circleShape()
@@ -69,13 +70,12 @@ struct QuizDash: View{
                         Circle().stroke(.blue, lineWidth: 2)
                     }
                 
-                Text("Your level: \(ourUser.userTitle)").italic()
+                Text("\(ourUser.userTitle)").italic()
                 
                 ProgressView(value: Double(ourUser.progress)/100.0)
                 
                 Text("\(ourUser.progress)%")
 //                Divider()
-                Spacer()
                 
                 VStack(spacing:10){
                     Group {
@@ -89,6 +89,7 @@ struct QuizDash: View{
                         }
                         .isDetailLink(false)
                         .disabled(livello_sbloccato < 1)
+                       
                         
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2], rootIsActive: self.$isActive2, livelloSbloccato: $livello_sbloccato), isActive: self.$isActive2) {
                             ButtonView(livello: categories[2])
@@ -122,7 +123,7 @@ struct QuizDash: View{
                         
                     }
                     
-                    .padding(15).scenePadding(.vertical)
+                    .padding(10).scenePadding(.vertical)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .background(Color(UIColor.systemBlue))
                     .cornerRadius(30)
@@ -153,17 +154,20 @@ struct Intro_Quiz: View {
         let filtrato : [Parola] = parole.filter{$0.categoria == categoriaScelta}
         ZStack{
             VStack{
-                Text("Here's some phrases and words you're going to need in order to solve this quiz. Take your time reading and understanding them.").padding(.horizontal)
+                Text("Here's some phrases and words you're going to need.").padding(.horizontal)
+                    .font(.subheadline)
                 ZStack{
                 ScrollView(.vertical){
                     VStack(alignment: .center, spacing: 10){
                        
                         ForEach (filtrato) { parolina in
                             CardView(parola: parolina)
+                                
                         }
                         
-                    }.frame(maxHeight: .infinity)
-                }.navigationTitle("\(categoriaScelta) quiz").padding(.horizontal).font(.title)
+                    }.frame()
+                        
+                }.navigationTitle("\(categoriaScelta)").padding(.horizontal).font(.title)
                 
             }
             //                questa view chiamata loading mi permette poi di switchare le views in base al quiz che voglio fare per ogni livello in base alla categoria che mi viene passata

@@ -139,22 +139,26 @@ struct QuizScene: View {
         VStack(spacing:10){
             Text("Quiz")
                 .font(.largeTitle)
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color(UIColor.systemBlue))
                 .fontWeight(.heavy)
-                .padding(5.0)
+                .padding(20)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             ZStack{
                 RoundedRectangle(cornerRadius: 20)
-                    .frame(height: 400).foregroundColor(Color.gray)
+                    .frame(height: 400).foregroundColor(Color(UIColor.systemGray6))
+                    .padding(.horizontal)
                 
                 VStack{
-                    Image("buttBack")
-                    Text(domande_da_usare.domanda).foregroundColor(Color.black)
-                    Text(domande_da_usare.question).foregroundColor(Color.black)
+                    Text(domande_da_usare.emoji)
+                        .font(.system(size: 170))
+                        .fontWeight(.bold)
+                    Group{
+                        Text(domande_da_usare.domanda).fontWeight(.medium).foregroundColor(Color.black).padding(.horizontal, 15).multilineTextAlignment(.center)
+                        Text(domande_da_usare.question).italic().foregroundColor(Color.black).padding(.horizontal, 15)
+                    }.padding(.horizontal).multilineTextAlignment(.center)
                 }
-            }
-            Spacer()
+            }.padding(.horizontal, 15)
             
             //            provaiamo ada avere bottoniu con risposte mischiate
             Group{
@@ -175,7 +179,7 @@ struct QuizScene: View {
                 .alert(isPresented: $showAlert) {
                     //                    switch activeAlert {
                     if (alertAttiva) {
-                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. Try to use it in everyday  life!"),   dismissButton: .default(Text("Next"), action: {
+                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. It will be useful in your life in Naples!"),   dismissButton: .default(Text("Next"), action: {
                             if (quiz_liv_da_visualizzare < 5){  //fatto così per ora per avere il codice funzionanate ma se riuscite in modo più pulito cambiate
                                 quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande  (da 6 paroole) questa variabile fa da conteggio
                             else {
@@ -206,6 +210,8 @@ struct QuizScene: View {
                                     
                                 } else if (domande_da_usare.categoria == "Danger Zone"){
                                     LvSbloccato += 1
+                                    ourUser.userTitle = "Zingarone"
+                                    ourUser.profilePic = "ZINGARONE"
                                     ourUser.progress = 100
                                     self.torniamo_alla_dash = false
                                 }
@@ -214,8 +220,8 @@ struct QuizScene: View {
                     } else {
                         //                               case .sbagliata:
                         return Alert(
-                            title: Text("Wrong"),
-                            message: Text("Looks like you need to check the words and their meaning again"),
+                            title: Text("Wrong."),
+                            message: Text("Looks like you need to check the words and their meaning again."),
                             dismissButton: .default(Text("Try again"))
                         )
                     }
@@ -240,7 +246,7 @@ struct QuizScene: View {
                 .alert(isPresented: $showAlert) {
                     //                    switch activeAlert {
                     if (alertAttiva) {
-                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. Try to use it in everyday  life!"),   dismissButton: .default(Text("Next"), action: {
+                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. It will be useful in your life in Naples!"),   dismissButton: .default(Text("Next"), action: {
                             if (quiz_liv_da_visualizzare < 5){  //fatto così per ora per avere il codice funzionanate ma se riuscite in modo più pulito cambiate
                                 quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande  (da 6 paroole) questa variabile fa da conteggio
                             else {
@@ -282,8 +288,8 @@ struct QuizScene: View {
                     } else {
                         //                               case .sbagliata:
                         return Alert(
-                            title: Text("Wrong"),
-                            message: Text("Looks like you need to check the words and their meaning again"),
+                            title: Text("Wrong."),
+                            message: Text("Looks like you need to check the words and their meaning again."),
                             dismissButton: .default(Text("Try again"))
                         )
                     }
@@ -308,7 +314,7 @@ struct QuizScene: View {
                 .alert(isPresented: $showAlert) {
                     //                    switch activeAlert {
                     if (alertAttiva) {
-                        return Alert(title: Text("Well DOne!"), message: Text("You know how to use this word. Try to use it in everyday  life!"),   dismissButton: .default(Text("Next"), action: {
+                        return Alert(title: Text("Well Done!"), message: Text("You know how to use this word. Use it at your discretion!"),   dismissButton: .default(Text("Next"), action: {
                             if (quiz_liv_da_visualizzare < 5){  //fatto così per ora per avere il codice funzionanate ma se riuscite in modo più pulito cambiate
                                 quiz_liv_da_visualizzare += 1} //poichè per ogni livello abbimao 6 domande  (da 6 paroole) questa variabile fa da conteggio
                             else {
@@ -347,18 +353,19 @@ struct QuizScene: View {
                     } else {
                         //                               case .sbagliata:
                         return Alert(
-                            title: Text("Wrong"),
+                            title: Text("Wrong."),
                             message: Text("Looks like you need to check the words and their meaning again"),
                             dismissButton: .default(Text("Try again"))
                         )
                     }
                 }
                 
-            }.frame(maxWidth:320, maxHeight: 65, alignment: .center)
-                .background(.blue)
-                .cornerRadius(25)
-                .font(.title)
-                .foregroundColor(Color.white)
+            }.frame(maxWidth:300, maxHeight: 35, alignment: .center)
+                .padding(.vertical)
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(30)
+                .font(.title3)
+                .foregroundColor(Color(UIColor.systemBlue))
             
             
             //            Group{
@@ -413,7 +420,7 @@ struct QuizScene: View {
             
             Spacer()
             
-            Text("\(quiz_liv_da_visualizzare + 1)").fontWeight(.thin)
+            Text("\(quiz_liv_da_visualizzare + 1)/6").fontWeight(.thin)
             
             Spacer()
         }

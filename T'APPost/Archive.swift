@@ -25,13 +25,15 @@ struct ArchiveView: View {
     let badge3 : [Badge] = badges.filter{$0.category == "Romance"}
     let badge4 : [Badge] = badges.filter{$0.category == "Danger Zone"}
     
+    
+    
 
     var body: some View {
         //NavigationView che usa i nomi delle parole della lista come link, per poi rimandarti a DetailView (passa come parametro l'intera parola compresa di nome, descrizione e proprietà)
         NavigationView{
             VStack(spacing: 20){
                 Text("Words and Badges")
-                    .font(.title)
+                    .font(.callout)
                     .foregroundColor(Color.blue)
                     .fontWeight(.regular)
                     .padding(5.0)
@@ -50,7 +52,7 @@ struct ArchiveView: View {
                         VStack(){
 //                        Divider()
 //                            ZStack{
-                                Text("Congratulations, you completed the Greetings quiz!")
+                                Text("Congratulations, you unlocked the Greetings quiz!")
                                     .foregroundColor(.blue)
                                     .multilineTextAlignment(.center)
                                 BadgeView(badgio: badges[0].icon, greys: badges[0].greyness)
@@ -85,7 +87,7 @@ struct ArchiveView: View {
                     if (ourUser.dailyLifeUnlocked){
                         
                             VStack{
-                                Text("Congratulations, you have unlocked the Daily Life quiz!")
+                                Text("Congratulations, you unlocked the Daily Life quiz!")
                                     .foregroundColor(.blue)
                                     .multilineTextAlignment(.center)
                                 BadgeView(badgio: badges[1].icon, greys: badges[1].greyness)
@@ -113,7 +115,7 @@ struct ArchiveView: View {
                     if (ourUser.romanceUnlocked){
                         
                             VStack{
-                                Text("Congratulations, you have unlocked the Romance quiz!")
+                                Text("Congratulations, you unlocked the Romance quiz!")
                                     .foregroundColor(.blue)
                                     .multilineTextAlignment(.center)
                                 BadgeView(badgio: badges[2].icon, greys: badges[2].greyness)
@@ -140,7 +142,7 @@ struct ArchiveView: View {
                     if (ourUser.dangerZoneUnlocked){
                         
                             VStack{
-                                Text("Congratulations, you have unlocked the Danger Zone quiz!")
+                                Text("Congratulations, you unlocked the Danger Zone quiz!")
                                     .foregroundColor(.blue)
                                     .multilineTextAlignment(.center)
                                 BadgeView(badgio: badges[3].icon, greys: badges[3].greyness)
@@ -179,6 +181,11 @@ struct DetailView: View {
                 .font(.title2.bold().italic())
                 .frame(maxWidth: .infinity, alignment: .leading)
             Text(parol.descrizione)
+                .font(.body)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Text(parol.esempio)
+                .font(.body.italic())
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             Spacer()
         }
