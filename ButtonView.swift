@@ -23,6 +23,7 @@ struct ButtonView : View {
             VStack (alignment: .leading, spacing: 10){
                 Text(livello)
                     .font(.title2)
+                    .padding(.horizontal, 100)
                     .foregroundColor(.white)
                     .scaledToFit()
                 
