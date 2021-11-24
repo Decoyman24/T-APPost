@@ -85,7 +85,7 @@ struct ArchiveView: View {
                     if (ourUser.dailyLifeUnlocked){
                         
                             VStack{
-                                Text("Congratulations, you completed the Daily Life quiz!")
+                                Text("Congratulations, you have unlocked the Daily Life quiz!")
                                     .foregroundColor(.blue)
                                     .multilineTextAlignment(.center)
                                 BadgeView(badgio: badges[1].icon, greys: badges[1].greyness)
@@ -113,7 +113,7 @@ struct ArchiveView: View {
                     if (ourUser.romanceUnlocked){
                         
                             VStack{
-                                Text("Congratulations, you completed the Romance quiz!")
+                                Text("Congratulations, you have unlocked the Romance quiz!")
                                     .foregroundColor(.blue)
                                     .multilineTextAlignment(.center)
                                 BadgeView(badgio: badges[2].icon, greys: badges[2].greyness)
@@ -140,7 +140,7 @@ struct ArchiveView: View {
                     if (ourUser.dangerZoneUnlocked){
                         
                             VStack{
-                                Text("Congratulations, you completed the Danger Zone quiz!")
+                                Text("Congratulations, you have unlocked the Danger Zone quiz!")
                                     .foregroundColor(.blue)
                                     .multilineTextAlignment(.center)
                                 BadgeView(badgio: badges[3].icon, greys: badges[3].greyness)
