@@ -32,7 +32,7 @@ let greetings : [Domandaquiz] = [
     
     Domandaquiz(categoria: "Greetings", domanda: "_________, tutt’appost?" , question: "Hey beautiful, you doin’ alright?", rispCorretta: "Cià bell", sbagliata: "Ce verimm", errata: "Statte buono", emoji: "👋🏼"),
     
-    Domandaquiz(categoria: "Greetings", domanda: "___, comm staje frà?" , question: "___, how you doing?", rispCorretta: "Ue", sbagliata: "T'appost", errata: "Ce verimm", emoji: "🤜🏼🤛🏼"),
+    Domandaquiz(categoria: "Greetings", domanda: "___, comm staje frà?" , question: "Hey, how you doing?", rispCorretta: "Ue", sbagliata: "T'appost", errata: "Ce verimm", emoji: "🤜🏼🤛🏼"),
     
     Domandaquiz(categoria: "Greetings", domanda: "Scus’ ma nun teng proprj genio e parlà cu te, ___________" , question: "I’m sorry but I don’t feel like talking with you, be well", rispCorretta: "Statte buono'", sbagliata: "Ue", errata: "Scusat signò", emoji: "🤝")
 ]

@@ -51,7 +51,6 @@ struct QuizDash: View{
 
     
     var body: some View{
-       
         NavigationView{
             VStack(spacing:10){
                 Text("Quiz")
@@ -77,32 +76,59 @@ struct QuizDash: View{
                 Text("\(ourUser.progress)%")
 //                Divider()
                 
-                VStack(spacing:10){
+                VStack(spacing: 20){
                     Group {
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[0], rootIsActive: self.$isActive, livelloSbloccato: $livello_sbloccato), isActive: self.$isActive) {
-                            ButtonView(livello: categories[0])
+                            ButtonView(livello: categories[0], paddingH: 90)
                         }
                         .isDetailLink(false)
                         
+                      
                     NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[1], rootIsActive: self.$isActive1, livelloSbloccato: $livello_sbloccato), isActive: self.$isActive1) {
-                            ButtonView(livello: categories[1])
+                        if (livello_sbloccato < 1) {
+                            ButtonViewDisabile(livello: categories[1], paddingH: 90)
+                        } else {
+                            ButtonView(livello: categories[1], paddingH: 90)
                         }
+                    }
                         .isDetailLink(false)
                         .disabled(livello_sbloccato < 1)
                        
+//                        inizio prova
                         
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2], rootIsActive: self.$isActive2, livelloSbloccato: $livello_sbloccato), isActive: self.$isActive2) {
-                            ButtonView(livello: categories[2])
+                            if (livello_sbloccato<2) {
+                                ButtonViewDisabile(livello: categories[2], paddingH: 90)
+                                
+                            }else {
+                    ButtonView(livello: categories[2], paddingH: 90)
+                        }
                         }
                         .isDetailLink(false)
                         .disabled(livello_sbloccato < 2)
                         
+                        
+//                        fine prova
+                        
+                        
+                        
+//                        NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[2], rootIsActive: self.$isActive2, livelloSbloccato: $livello_sbloccato), isActive: self.$isActive2) {
+//                            ButtonView(livello: categories[2])
+//                        }
+//                        .isDetailLink(false)
+//                        .disabled(livello_sbloccato < 2)
+                        
                         NavigationLink(destination: Intro_Quiz(categoriaScelta: categories[3], rootIsActive: self.$isActive3, livelloSbloccato: $livello_sbloccato), isActive: self.$isActive3) {
-                            ButtonView(livello: categories[3])
+                            if (livello_sbloccato<3) {
+                                ButtonViewDisabile(livello: categories[3], paddingH: 70)
+                                
+                            } else {
+                                ButtonView(livello: categories[3], paddingH: 70)
+                        }
                         }
                         .isDetailLink(false)
                         .disabled(livello_sbloccato < 3)
-
+                        
 //                   fine prova
                         
                         
@@ -123,9 +149,8 @@ struct QuizDash: View{
                         
                     }
                     
-                    .padding(10).scenePadding(.vertical)
+//                    .padding(10).scenePadding(.vertical)
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .background(Color(UIColor.systemBlue))
                     .cornerRadius(30)
                     .font(.title2)
                     .foregroundColor(Color.white)
@@ -134,7 +159,7 @@ struct QuizDash: View{
                 }
                 //                        .preferredColorScheme(.dark)
                 
-            }.padding(.horizontal, 30.0)
+            }.padding(.horizontal)
             
     
         }
